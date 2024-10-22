@@ -19,15 +19,14 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
->   We wanted to expand upon the Library System project idea, by applying it to a real-world application in terms of healthcare! We took inspiration from “Rate My Professor” to create “Rate My Doctor” a database where users can view and add ratings/reviews for doctors, receive suggestions based on their recent locations, find healthcare professionals based on their specialty and ratings to schedule appointments. Doctors from hospitals and private practices can create their own profiles. This idea is important to us because we want to create a platform that promotes reliable healthcare to our users. 
+ >   We wanted to expand upon the Library System project idea, by applying it to a real-world application in terms of healthcare! We took inspiration from “Rate My Professor” to create “Rate My Doctor” a database where users can view and add ratings/reviews for doctors, receive suggestions based on their recent locations, find healthcare professionals based on their specialty and ratings to schedule appointments. Doctors from hospitals and private practices can create their own profiles. This idea is important to us because we want to create a platform that promotes reliable healthcare to our users. 
 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
->    We will use C++ to implement our system. We will also get a dataset of doctors.
+ >   We will use C++ to implement our system. We will also get a dataset of doctors.
 
  > * What will be the input/output of your project?
->    User inputs:
+ >   User inputs:
 Sign up for accounts
 Log in
 Reviews/ratings
