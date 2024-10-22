@@ -47,16 +47,16 @@
  > * Updated profiles 
 
 What are the features that the project provides?
-> Users
+> Users:
 > * Sign up for accounts
 > * Schedule Appointments
-> * Display doctors based on specialty and average rating or location
-> * Suggestions for other nearby doctors based on location
-> * Display Community reviews/ratings
+> * Leave and view reviews
+> * View doctors based on specialty and average rating or location
+> * Receive suggestions for other nearby doctors based on location
 
-> Administrative accounts (hospitals, private practices) input:
-> * Hospital info 
-> * add/edit/remove doctor profiles
+> Administrative accounts (hospitals, private practices):
+> * Create a profile to display hospital/clinic info 
+> * Doctors can add/edit/remove profiles
 
 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
