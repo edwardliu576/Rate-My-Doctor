@@ -47,7 +47,17 @@
  > * Updated profiles 
 
 What are the features that the project provides?
-> * The project will allow for users to create accounts and leave reviews or ratings on healthcare professionals that they visit. They can also search and find reliable	doctors and filter through different specialities, their average rating, and their location. Users can also receive suggestions on further providers based on their recent location searches. They will also be able to schedule appointments and favorite professionals accordingly. The administrators that wish to use our database can add, edit, and remove healthcare professionals to the database, which can create a greater variety of healthcare options for our users. 
+> Users
+> * Sign up for accounts
+> * Schedule Appointments
+> * Display doctors based on specialty and average rating or location
+> * Suggestions for other nearby doctors based on location
+> * Display Community reviews/ratings
+
+> Administrative accounts (hospitals, private practices) input:
+> * Hospital info 
+> * add/edit/remove doctor profiles
+
 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
