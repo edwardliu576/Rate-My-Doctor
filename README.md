@@ -1,7 +1,7 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \Rate My Doctor\
+# Rate My Doctor
  > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: \<[Nichole Godfrey](https://github.com/nicholegodfrey)\>
@@ -19,34 +19,35 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
- > * Why is it important or interesting to you?
- >   We wanted to expand upon the Library System project idea, by applying it to a real-world application in terms of healthcare! We took inspiration from “Rate My Professor” to create “Rate My Doctor” a database where users can view and add ratings/reviews for doctors, receive suggestions based on their recent locations, find healthcare professionals based on their specialty and ratings to schedule appointments. Doctors from hospitals and private practices can create their own profiles. This idea is important to us because we want to create a platform that promotes reliable healthcare to our users. 
+ Why is it important or interesting to you?
+ > * We wanted to expand upon the Library System project idea, by applying it to a real-world application in terms of healthcare! We took inspiration from “Rate My Professor” to create “Rate My Doctor” a database where users can view and add ratings/reviews for doctors, receive suggestions based on their recent locations, find healthcare professionals based on their specialty and ratings to schedule appointments. Doctors from hospitals and private practices can create their own profiles. This idea is important to us because we want to create a platform that promotes reliable healthcare to our users. 
 
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   We will use C++ to implement our system. We will also get a dataset of doctors.
+ What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+ > * We will use C++ to implement our system. We will also get a dataset of doctors.
 
- > * What will be the input/output of your project?
- >   User inputs:
-Sign up for accounts
-Log in
-Reviews/ratings
-Schedule Appointments
-User Location 
-Favorite certain doctors 
-User outputs:
-Display doctors based on specialty and average rating or location
-Suggestions for other nearby doctors based on location
-Top rated doctors 
-Community reviews/ratings
+ What will be the input/output of your project?
+ > User inputs:
+ >   * Sign up for accounts
+ >   * Log in
+ >   * Reviews/ratings
+ >   * Schedule Appointments
+ >   * User Location
+ >   * Favorite certain doctors
 
-Administrative accounts (hospitals, private practices) input:
-Hospital info 
-add/edit/remove doctor profiles
-Administrative accounts (hospitals, private practices) output:
-Updated profiles 
+ > User outputs:
+ > * Display doctors based on specialty and average rating or location
+ > * Suggestions for other nearby doctors based on location
+ > * Top rated doctors
+ > * Community reviews/ratings
 
- > * What are the features that the project provides?
->    The project will allow for users to create accounts and leave reviews or ratings on healthcare professionals that they visit. They can also search and find reliable	doctors and filter through different specialities, their average rating, and their location. Users can also receive suggestions on further providers based on their recent location searches. They will also be able to schedule appointments and favorite professionals accordingly. The administrators that wish to use our database can add, edit, and remove healthcare professionals to the database, which can create a greater variety of healthcare options for our users. 
+ > Administrative accounts (hospitals, private practices) input:
+ > * Hospital info
+ > * add/edit/remove doctor profiles
+ >  Administrative accounts (hospitals, private practices) output:
+ > * Updated profiles 
+
+What are the features that the project provides?
+> * The project will allow for users to create accounts and leave reviews or ratings on healthcare professionals that they visit. They can also search and find reliable	doctors and filter through different specialities, their average rating, and their location. Users can also receive suggestions on further providers based on their recent location searches. They will also be able to schedule appointments and favorite professionals accordingly. The administrators that wish to use our database can add, edit, and remove healthcare professionals to the database, which can create a greater variety of healthcare options for our users. 
 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
