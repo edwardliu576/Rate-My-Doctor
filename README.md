@@ -40,7 +40,7 @@
  > * Top rated doctors
  > * Community reviews/ratings
 
- > Administrative accounts (hospitals, private practices) input:
+ > Administrative accounts (hospitals, private practices):
  > * Hospital info
  > * add/edit/remove doctor profiles
  >  Administrative accounts (hospitals, private practices) output:
