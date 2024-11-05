@@ -88,7 +88,7 @@ What are the features that the project provides?
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
 
-> The diagram shows the relationship between our main classes: the User, Doctor, Hospital, Appointment, and Review classes.
+> The diagram shows the relationship between our main classes: the User, Doctor, Hospital, Appointment, and Review classes. The attributes and methods are listed to show the desired behavior of each class. The associations are also labeled to show what kind of relationship there is among the classes.
 ![image](https://github.com/user-attachments/assets/32077c71-6a84-4aa4-9fb7-22e3f9eaf482)
  
  > ## Phase III
