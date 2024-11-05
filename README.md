@@ -89,7 +89,7 @@ What are the features that the project provides?
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
 
 > The diagram shows the relationship between our main classes: the User, Doctor, Hospital, Appointment, and Review classes.
-![image](https://imgur.com/ses9XTm) 
+![image](https://github.com/user-attachments/assets/32077c71-6a84-4aa4-9fb7-22e3f9eaf482)
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
