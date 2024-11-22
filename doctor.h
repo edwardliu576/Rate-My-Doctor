@@ -5,7 +5,7 @@
 
 using namespace std;
 
-struct Doctor {
+class Doctor {
     string name;
     string username;
     string password;
