@@ -89,8 +89,16 @@ What are the features that the project provides?
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
 
 > The diagram shows the relationship between our main classes: the BaseEntity, User, Doctor, Hospital, Appointment, and Review classes. The attributes and methods are listed to show the desired behavior of each class. Multiplicity is included.
+>
+> After reviewing the SOLID principles, the diagram has now been updated.
+>
+> Change #1: Applied the Liskov Substitution Principle (LSP) and Open/Closed Principle (OCP) by adding inheritance across multiple classes. All classes inherit from the Account class due to the fact that they can share its variables, such as name, ID, and x and y-coordinates of location. This improves the code greatly because it drastically reduces code duplication, and subclasses can be substituted for the base (LSP). New subclasses can even be added to extend the functionality without touching the already-existing code (OCP).
+> 
+> Change #2: Applied the single responsibility principle (SRP) by changing the location variables of the Account class from doubles to a string. Originally, there were two location variables: an x-coordinate and a y-coordinate. This change refocused the Account class's responsibility to have a more general representation of a location. This improved the code since now it is easier to maintain and extend without affecting other parts of the code (it is only necessary to change one thing now instead of two).
+> 
+> Change #3: Applied the Open-Closed Principle (OCP) and Dependency Inversion Principle (DIP) by replacing some inheritance relationships with aggregation. Specifically, the Review and Appointment classes now form aggregations with the User class instead of inheriting from the Account class. This improved the code because aggregation makes the system more flexible, and new components and behavior can be extended without changing the existing code (OCP). Additionally, the high-level logic now no longer depends on the low-level details (DIP).
 <img width="1132" alt="image" src="https://github.com/user-attachments/assets/402b4f53-58cf-4299-9fab-b4ef69a084da">
- 
+
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
  
