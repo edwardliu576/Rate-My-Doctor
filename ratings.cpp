@@ -1,5 +1,6 @@
 #include "ratings.h"
 #include <iostream>
+#include <vector>
 using namespace std; 
 
 void Ratings::addRating(double rating)
@@ -26,4 +27,23 @@ double Ratings::averageRating() const
 double Ratings::getTotalReviews() const
 {
     return totalReviews;
+}
+
+void Ratings::addComment(const string& review)
+{
+    comments.push_back(review); 
+    
+}
+void Ratings::displayReviews() const
+{
+    cout << "Total Reviews: " << totalReviews << endl; 
+    cout << "Average Rating: " << averageRating() << endl; 
+    cout << "Reviews: " << endl;  
+    for (int i = 0; i < comments.size(); i++)
+    {
+        string review = comments[i];
+        cout << review << endl; 
+
+    }
+    
 }
