@@ -8,8 +8,8 @@ using namespace std;
 
 class User : public Account{
     private:
-        vector<Doctor> favoriteDoctors(10);   //default size of 10
-        vector<Appointment> appointments(10); //default size of 10
+        vector<Doctor> favoriteDoctors;   
+        vector<Appointment> appointments;
         void calculateDistance();     //this will be figured out later
     public:
         User(const string &, const string &, const string &, const string &);
@@ -25,6 +25,6 @@ class User : public Account{
         void deleteAppointment();
         void viewAppointments();
         void viewSuggestedDoctors();
-        void addToFavorites();
+        void addToFavorites(const Doctor &);
 
 };
