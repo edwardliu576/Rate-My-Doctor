@@ -2,7 +2,7 @@
 
 #include <vector>
 //#include <doctor.h>             update to get correct paths later
-//#include <appointment.h>        update to get correct paths later
+#include <appointment.h>       
 #include "account.h"
 using namespace std;
 
