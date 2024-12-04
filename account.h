@@ -8,14 +8,21 @@ struct Account {
     string name;
     string username;
     string password;
-    string location; 
-    int id = 1;
+    string address;
+    string zipcode; 
 
-    Account(const string &n, const string &un, const string &pwd, const string &l) : 
-        name(n), username(un), password(pwd), location(l) {};
+    Account(const string &n, const string &un, const string &pwd, const string &a, const string &z) : 
+        name(n), username(un), password(pwd), address(a), zipcode(z) {};
 
     void editName(const string &);
-    void editLocation(const string &);
+    void editAddress(const string &);
+    void editZipcode(const string &);
     void editUsername(const string &);
     void editPassword(const string &);
+
+    string getName();
+    string getAddress();
+    string getZipcode();
+    string getUsername();
+    string getPassword();
 };
