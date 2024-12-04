@@ -8,6 +8,10 @@ void Account::editAddress(const string &newAddress) {
     address = newAddress;
 }
 
+void Account::editZipcode(const string &newZipcode) {
+    zipcode = newZipcode;
+}
+
 
 void Account::editZipcode(const string &newZipCode) {
     zipcode = newZipCode;
