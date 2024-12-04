@@ -11,13 +11,13 @@ void doctordatabase::addNewDoctor(const Doctor &d){
     if(!myfile.is_open()) {
         throw runtime_error("Unable to open file");
     }
-    myfile <<"\n"<< d.getNPI() << ","<< d.getName()<< ","<< d.getCred() << ","<<d.getSpecialty()<< "," <<d.getTele() << ","<<d.getFacility() << ","<<d.getAddress()<< ","<<d.getZip()<< "," <<d.getPhone()<< "\n";
+    myfile <<"\n"<< d.getNPI() << ","<< d.getName()<< "," << d.getUsername() << "," << d.getPassword()<< "," << d.getCred() << ","<<d.getSpecialty()<< "," <<d.getTele() << ","<<d.getFacility() << ","<<d.getAddress()<< ","<<d.getZipcode()<< "," <<d.getPhone()<< "\n";
     myfile.close();
 
 }
 void doctordatabase::searchZipcode(const string &zip){
     for(int i=0; i < doctors.size(); i++){
-        if(doctors.at(i).getZip()==zip){
+        if(doctors.at(i).getZipcode()==zip){
             //add in prints from print class 
         }
     }
@@ -49,19 +49,20 @@ void doctordatabase::searchSpecialty(const string &spec){
         if(doctors.at(i).getUsername()==un){
             return true;
         }
-        else{
-            return false;
-        }
+
     }
+    return false;
  }
 Doctor doctordatabase::doctorlogin(const string & un, const string & p){
+    Doctor d= doctors.at(0);
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getUsername()==un){
             if(doctors.at(i).getPassword()==p){
-                return doctors.at(i);
+                d= doctors.at(i);
             }
         }
     }
+    return d;
 }
 
 int main(){
