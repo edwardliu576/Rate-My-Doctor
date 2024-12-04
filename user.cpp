@@ -1,6 +1,6 @@
 #include "user.hpp"
 
-User::User(const string &n, const string &un, const string &pwd, const string &l): Account(n, un, pwd, l){}
+User::User(const string &n, const string &un, const string &pwd, const string &addy,const string &zip): Account(n, un, pwd, addy, zip){}
 
 //when user leaves a review, create a Ratings object which includes the 
 //rating and comment
@@ -33,7 +33,6 @@ void User::deleteReview(){
 void User::addToFavorites(const Doctor &d){
     favoriteDoctors.push_back(d);
 }
-
 
 //edit/delete review 
 //take in number as parameter. that num is used to access the reviews vector of user
