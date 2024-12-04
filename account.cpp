@@ -12,6 +12,10 @@ void Account::editZipcode(const string &newZipcode) {
     zipcode = newZipcode;
 }
 
+
+void Account::editZipcode(const string &newZipCode) {
+    zipcode = newZipCode;
+}
 void Account::editUsername(const string &newUn) {
     username = newUn;
 }
@@ -20,22 +24,18 @@ void Account::editPassword(const string &newPwd) {
     password = newPwd;
 }
 
-string Account::getName() {
+ string Account::getName(){
     return name;
-}
-
-string Account::getAddress() {
+ }
+string Account::getAddress(){
     return address;
 }
-
-string Account::getZipcode() {
+string Account::getZipcode(){
     return zipcode;
 }
-
-string Account::getUsername() {
+string Account::getUsername(){
     return username;
 }
-
-string Account::getPassword() {
+string Account::getPassword(){
     return password;
 }
