@@ -8,6 +8,7 @@ using namespace std;
 
 class Ratings
 {
+    // friend class User; 
     int totalReviews; 
     double sumOfRatings; 
     double averageOfRatings;

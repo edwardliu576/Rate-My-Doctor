@@ -2,15 +2,20 @@
 
 #include <string>
 
+#include "doctor.h"
+#include <iostream>
+
 using namespace std;
 
 class Appointment{
     private:
+        Doctor theDoctor;
         string date;
         string time;
-        string status;
+        bool status;
     public:
-        Appointment(const string &, const string &, const string &);
-        void changeAppointmentDetails(const string &, const string &, const string &);
+        Appointment(const Doctor &, const string &, const string &, bool);
+        void changeAppointmentDetails(const Doctor &, const string &, const string &, bool);
+        void outputAppointmentDetails();
         
 };

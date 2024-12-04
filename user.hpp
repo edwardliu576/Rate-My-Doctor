@@ -1,9 +1,10 @@
 #pragma once
 
 #include <vector>
-//#include <doctor.h>             update to get correct paths later
-#include <appointment.h>       
+#include "doctor.h"            
+#include "appointment.h"       
 #include "account.h"
+#include "ratings.h"
 using namespace std;
 
 class User : public Account{
@@ -12,19 +13,22 @@ class User : public Account{
         vector<Appointment> appointments;
         void calculateDistance();     //this will be figured out later
     public:
-        User(const string &, const string &, const string &, const string &);
+        User(const string &, const string &, const string &, const string &); //good!
 
-        //these are put in place to know what to do, but the details
-        //such as return type and parameters will be figured out later
-        //as development progresses
-        void leaveReview();
-        void editReview();
-        void deleteReview();
-        void scheduleAppointment();
-        void editAppointment();
-        void deleteAppointment();
-        void viewAppointments();
-        void viewSuggestedDoctors();
-        void addToFavorites(const Doctor &);
+        void leaveReview(const Doctor &, double, const string&); //need to add friend functions/getters
+
+        void editReview(Doctor &, double, const string&); //to be decided
+        void deleteReview(); //to be decided
+
+        void scheduleAppointment(const Doctor &, const string &, const string &, bool); //good!
+
+        void editAppointment(); //to be decided
+        void deleteAppointment(); //to be decided
+
+        void viewAppointments(); //good! but remember friend class declaration
+
+        void viewSuggestedDoctors(); //need to figure out with calculateDistance too
+
+        void addToFavorites(const Doctor &); //good!
 
 };
