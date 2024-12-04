@@ -30,7 +30,13 @@ void doctordatabase::searchName(const string &name){
         }
     }
 }
-
+void doctordatabase::searchNPI(const string &nip){
+    for(int i=0; i < doctors.size(); i++){
+        if(doctors.at(i).getNPI()==nip){
+            //add in prints from print class 
+        }
+    }
+}
 void doctordatabase::searchSpecialty(const string &spec){
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getSpecialty()==spec){
