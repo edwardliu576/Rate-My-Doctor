@@ -170,7 +170,7 @@ class doctordatabase {
         doctors.push_back(d);
     }
     }
-    void addNewDoctor(Doctor d);
+    void addNewDoctor(const Doctor &d);
     void searchZipcode(const string &zip);
     void searchName(const string &name); 
     void searchSpecialty(const string &spec); 
