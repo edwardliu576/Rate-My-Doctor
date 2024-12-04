@@ -8,27 +8,27 @@ void Doctor::editHospital(const string &newHospital) {
     facility = newHospital;
 }
 
-string Doctor::getNPI(){
+string Doctor:: getNPI () const {
     return NPI;
 }
-string Doctor::getCred(){
+string Doctor::getCred() const{
     return cred;
 }
-string Doctor::getSpecialty(){
+string Doctor::getSpecialty() const {
     return specialty;
 }
-bool Doctor::getTele(){
+bool Doctor::getTele() const {
     return telehealth;
 }
-string Doctor::getFacility(){
+string Doctor::getFacility() const{
     return facility;
 }
-string Doctor::getAddy(){
+string Doctor::getAddy() const{
     return address;
 }
-string Doctor::getZip(){
+string Doctor::getZip() const{
     return zipcode;
 }
-string Doctor::getPhone(){
+string Doctor::getPhone() const{
     return phone;
 }

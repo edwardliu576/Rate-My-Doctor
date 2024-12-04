@@ -29,14 +29,14 @@ class Doctor: public Account {
         void editSpecialty(const string &);
         void editHospital(const string &);
 
-        string getNPI();
-        string getCred();
-        string getSpecialty();
-        bool getTele();
-        string getFacility();
-        string getAddy();
-        string getZip();
-        string getPhone();
+        string getNPI() const;
+        string getCred() const;
+        string getSpecialty() const;
+        bool getTele() const;
+        string getFacility() const;
+        string getAddy() const;
+        string getZip() const;
+        string getPhone() const;
     //vector of doctors returned 
     
 };

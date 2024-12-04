@@ -4,7 +4,7 @@
 //include print class
 
 
-void doctordatabase::addNewDoctor(Doctor d){
+void doctordatabase::addNewDoctor(const Doctor &d){
     doctors.push_back(d);
     ofstream myfile;
     myfile.open(file, std::ios::app);
