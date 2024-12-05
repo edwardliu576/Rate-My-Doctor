@@ -67,8 +67,3 @@ Doctor doctordatabase::doctorlogin(const string & un, const string & p){
     return d;
 }
 
-// int main(){
-//     doctordatabase d = doctordatabase("doctors.csv");
-//     Doctor newDoc= Doctor("1151", "silly billy", "billlikesfrogs", "googoo", "docofdayear","heart", true,"batman headquarters", "123 chochoo ct","30221", "6266777194");
-//     d.addNewDoctor(newDoc);
-// }
