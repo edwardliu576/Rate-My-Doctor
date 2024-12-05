@@ -41,6 +41,35 @@ class doctordatabase {
             theID=cell;
         }
 
+        //un
+        string theun="";
+       
+        getline(ss, cell, ',');
+        if(cell.empty()) {
+            theun= " ";
+        }
+        else if(!cell.empty() && cell.front() == '"' && cell.back() == '"') {
+            cell = cell.substr(1, cell.size()-2);
+            theun=cell;
+        }
+        else {
+            theun=cell;
+        }
+
+        //un
+        string thepwd="";
+       
+        getline(ss, cell, ',');
+        if(cell.empty()) {
+            thepwd= " ";
+        }
+        else if(!cell.empty() && cell.front() == '"' && cell.back() == '"') {
+            cell = cell.substr(1, cell.size()-2);
+            thepwd=cell;
+        }
+        else {
+            thepwd=cell;
+        }
         // 
         string cell2;
         string theName="";
@@ -146,10 +175,10 @@ class doctordatabase {
         }
         else if(!cell.empty() && cell.front() == '"' && cell.back() == '"') {
             cell = cell.substr(1, cell.size()-2);
-            zip=cell;
+            zip=cell.substr(0, 5);
         }
         else {
-            zip=cell;
+            zip=cell.substr(0, 5);
         }
 
         string ph = "";
@@ -166,7 +195,7 @@ class doctordatabase {
             ph=cell;
         }
 
-        Doctor d= Doctor(theID, theName, "", "",creds,specs, tele, fac,addy, zip, ph);
+        Doctor d= Doctor(theID, theName, theun, thepwd,creds,specs, tele, fac,addy, zip, ph);
         doctors.push_back(d);
     }
     }
