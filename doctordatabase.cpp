@@ -11,13 +11,13 @@ void doctordatabase::addNewDoctor(const Doctor &d){
     if(!myfile.is_open()) {
         throw runtime_error("Unable to open file");
     }
-    myfile <<"\n"<< d.getNPI() << ","<< d.getName()<< ","<< d.getCred() << ","<<d.getSpecialty()<< "," <<d.getTele() << ","<<d.getFacility() << ","<<d.getAddress()<< ","<<d.getZip()<< "," <<d.getPhone()<< "\n";
+    myfile <<"\n"<< d.getNPI() << ","<< d.getName()<< "," << d.getUsername() << "," << d.getPassword()<< "," << d.getCred() << ","<<d.getSpecialty()<< "," <<d.getTele() << ","<<d.getFacility() << ","<<d.getAddress()<< ","<<d.getZipcode()<< "," <<d.getPhone()<< "\n";
     myfile.close();
 
 }
 void doctordatabase::searchZipcode(const string &zip){
     for(int i=0; i < doctors.size(); i++){
-        if(doctors.at(i).getZip()==zip){
+        if(doctors.at(i).getZipcode()==zip){
             //add in prints from print class 
         }
     }
@@ -30,7 +30,13 @@ void doctordatabase::searchName(const string &name){
         }
     }
 }
-
+void doctordatabase::searchNPI(const string &nip){
+    for(int i=0; i < doctors.size(); i++){
+        if(doctors.at(i).getNPI()==nip){
+            //add in prints from print class 
+        }
+    }
+}
 void doctordatabase::searchSpecialty(const string &spec){
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getSpecialty()==spec){
@@ -43,15 +49,18 @@ void doctordatabase::searchSpecialty(const string &spec){
         if(doctors.at(i).getUsername()==un){
             return true;
         }
+
     }
     return false;
  }
 Doctor doctordatabase::doctorlogin(const string & un, const string & p){
-    Doctor d = doctors[0];
+
+    Doctor d= doctors.at(0);
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getUsername()==un){
             if(doctors.at(i).getPassword()==p){
-                d = doctors.at(i);
+                d= doctors.at(i);
+
             }
         }
     }

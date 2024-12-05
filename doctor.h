@@ -34,8 +34,7 @@ class Doctor: public Account {
         string getSpecialty() const;
         bool getTele() const;
         string getFacility() const;
-        string getAddy() const;
-        string getZip() const;
+        
         string getPhone() const;
     //vector of doctors returned 
     
