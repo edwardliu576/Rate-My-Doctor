@@ -24,14 +24,15 @@ void userDatabase::addNewUser(const User &u){
     }
     return false;
  }
-User userDatabase::userLogin(const string & un, const string & p){
+User* userDatabase::userLogin(const string & un, const string & p){
 
-    User u= users.at(0);
+    User *u= nullptr;
     for(int i=0; i < users.size(); i++){
         if(users.at(i).getUsername()==un){
             if(users.at(i).getPassword()==p){
-                u= users.at(i);
-
+                u= &users.at(i);
+                cout << "Welcome!" << endl;
+                break;
             }
         }
     }
