@@ -8,6 +8,7 @@
 using namespace std;
 
 class Doctor: public Account {
+    friend class User;
     string NPI;
     string cred;
     string specialty; 
