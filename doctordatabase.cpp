@@ -54,19 +54,21 @@ void doctordatabase::searchSpecialty(const string &spec){
     return false;
  }
 Doctor doctordatabase::doctorlogin(const string & un, const string & p){
+
     Doctor d= doctors.at(0);
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getUsername()==un){
             if(doctors.at(i).getPassword()==p){
                 d= doctors.at(i);
+
             }
         }
     }
     return d;
 }
 
-int main(){
-    doctordatabase d = doctordatabase("doctors.csv");
-    Doctor newDoc= Doctor("1151", "silly billy", "billlikesfrogs", "googoo", "docofdayear","heart", true,"batman headquarters", "123 chochoo ct","30221", "6266777194");
-    d.addNewDoctor(newDoc);
-}
+// int main(){
+//     doctordatabase d = doctordatabase("doctors.csv");
+//     Doctor newDoc= Doctor("1151", "silly billy", "billlikesfrogs", "googoo", "docofdayear","heart", true,"batman headquarters", "123 chochoo ct","30221", "6266777194");
+//     d.addNewDoctor(newDoc);
+// }
