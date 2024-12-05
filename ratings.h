@@ -12,6 +12,7 @@ class Ratings
     int totalReviews; 
     double sumOfRatings; 
     double averageOfRatings;
+    vector<double> ratings; 
     vector<string> comments; 
 
     Ratings(int total = 0, double sum = 0.0, double average = 0.0) 
@@ -25,6 +26,8 @@ class Ratings
     double getTotalReviews() const; 
     void addComment(const string& review); 
     void displayReviews() const; 
+    void editReview(int newReview, double newRating, const string &newComment) ; 
+    
 
 }; 
 

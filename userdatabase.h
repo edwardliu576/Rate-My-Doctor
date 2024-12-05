@@ -23,6 +23,6 @@ class userDatabase {
     }
     void addNewUser(const User &u);
     bool usernameExists(const string &un);
-    User userLogin(const string & un, const string & p);
+    User *userLogin(const string & un, const string & p);
 };
 

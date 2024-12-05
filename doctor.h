@@ -9,9 +9,6 @@ using namespace std;
 
 class Doctor: public Account {
     string NPI;
-    string name;
-    string username;
-    string password;
     string cred;
     string specialty; 
     bool telehealth;

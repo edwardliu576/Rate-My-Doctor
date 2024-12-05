@@ -28,6 +28,7 @@ void Print::printDocInformation(const Doctor &doctor)
     cout << "Address: " << doctor.getAddress() << endl; 
     cout << "Zipcode: " << doctor.getZipcode() << endl;
     cout << "Phone: " << doctor.getPhone() << endl;
+    cout << endl; 
 
 }
 void Print::printDocLoginInformation(const Doctor &docLogin)
@@ -46,7 +47,7 @@ void Print::printDocLoginInformation(const Doctor &docLogin)
 }
 void Print::printUserLoginInformation(const User &userLogin)
 {
-    cout << "Doctor Settings: " << endl; 
+    cout << "User Settings: " << endl; 
     cout << "Username: " << userLogin.getUsername() << endl; 
     cout << "Password: " << userLogin.getPassword() << endl; 
     cout << "Name: " << userLogin.getName() << endl;

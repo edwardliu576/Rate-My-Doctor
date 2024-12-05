@@ -2,200 +2,316 @@
 #include "user.hpp"
 #include "doctor.h"
 #include "doctordatabase.h"
+#include "userdatabase.h"
+#include "print.h"
+#include <string>
 
 using namespace std;
+Doctor *doctorSignUp();
+User *patientSignUp();
+void doctorPrompt();
+void userPrompt();
 
-int main() {
-  Account *newAccount;
+int main()
+{
+  Doctor *newDoctor = nullptr;
+  User *newUser = nullptr;
+  
   doctordatabase doctors = doctordatabase();
+  userDatabase users = userDatabase();
+  Print print = Print();
 
   string selection;
-  cout << "Would you like to sign up for a new account or log in to an existing account? (enter \'S\' for sign up or \'L\' for log in)" << endl; 
+  cout << "Would you like to sign up for a new account or log in to an existing account? (enter \'S\' for sign up or \'L\' for log in)" << endl;
   char input;
   cin >> input;
-  if(input == 'S' || input == 's') {
+  if (input == 'S' || input == 's')
+  {
     cout << "Are you a healthcare provider or patient? (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
     cin >> input;
-    while(input) {
-      if(input == 'H' || input == 'h') {
-        newAccount = doctorSignUp();
+    while (input)
+    {
+      if (input == 'H' || input == 'h')
+      {
+        newDoctor = doctorSignUp();
+        doctors.addNewDoctor(*newDoctor);
         selection = "doctor";
         break;
       }
-      else if(input == 'P' || input == 'p') {
-        newAccount = patientSignUp();
+      else if (input == 'P' || input == 'p')
+      {
+        newUser = patientSignUp();
+        users.addNewUser(*newUser);
         selection = "patient";
         break;
       }
-      else {
+      else
+      {
         cout << "Please enter a valid input (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
       }
     }
   }
-  else if(input == 'L' || input == 'l') {
-
+  else if (input == 'L' || input == 'l')
+  {
+    cout << "Are you a healthcare provider or patient? (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
+    cin >> input;
+    cout << "Enter username: ";
+    string username;
+    cin >> username;
+    while (input)
+    {
+      if (input == 'H' || input == 'h')
+      {
+        if(doctors.usernameExists(username)) {
+          cout << "Enter password: ";
+          string pwd;
+          cin >> pwd;
+          newDoctor = doctors.doctorlogin(username, pwd);
+          if(!newDoctor) {
+            cout << "Password is incorrect. Failed to log-in.";
+            return 0;
+          }
+          selection = "doctor";
+        }
+        else {
+          cout << "There is no account that matches that username!" << endl;
+          return 0;
+        }
+        break;
+      }
+      else if (input == 'P' || input == 'p')
+      {
+        if(users.usernameExists(username)) {
+          cout << "Enter password: ";
+          string pwd;
+          cin >> pwd;
+          newUser = users.userLogin(username, pwd);
+          if(!newUser) {
+            cout << "Password is incorrect. Failed to log-in.";
+            return 0;
+          }
+          selection == "patient";
+        }
+        else {
+          cout << "There is no account that matches that username!" << endl;
+          return 0;
+        }
+        break;
+      }
+      else
+      {
+        cout << "Please enter a valid input (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
+      }
+    }
   }
 
-  if(selection == "doctor") {
+  if (selection == "doctor")
+  {
     doctorPrompt();
     int numChoice;
     cin >> numChoice;
-    while(numChoice != 3) {
-      if(numChoice == 1) {
+    while (numChoice != 3)
+    {
+      if (numChoice == 1)
+      {
         cout << "Would you like to search by name or NPI? (enter \'N\' for name or \'I\' for NPI)" << endl;
         char search;
         cin >> search;
-        if(search == 'N' || search == 'n') {
+        if (search == 'N' || search == 'n')
+        {
+          cout << "Enter name: ";
           string name;
           cin >> name;
           doctors.searchName(name);
         }
-        else if(search == 'I' || search == 'i') {
+        else if (search == 'I' || search == 'i')
+        {
+          cout << "Enter NPI: ";
           string npi;
           cin >> npi;
           doctors.searchNPI(npi);
         }
-        else {
+        else
+        {
           cout << "Invalid input." << endl;
         }
       }
-      else if(numChoice == 2)
-      // displayDoctorAccount(*a);
+      else if (numChoice == 2)
+      {
+        print.printDocLoginInformation(*newDoctor);
         cout << "what would you like to edit? (Enter 1 for name, 2 for username, 3 for password, 4 for address, 5 for zipcode) " << endl;
         int editChoice;
         cin >> editChoice;
-        if(editChoice == 1) {
+        if (editChoice == 1)
+        {
           cout << "Enter new name: ";
           string name;
           cin >> name;
-          newAccount->editName(name);
+          newDoctor->editName(name);
         }
-        else if(editChoice == 2) {
+        else if (editChoice == 2)
+        {
           cout << "Enter new username: ";
           string name;
           cin >> name;
-          if(doctors.usernameExists(name) == false) {
-            newAccount->editUsername(name);
+          if (doctors.usernameExists(name) == false)
+          {
+            newDoctor->editUsername(name);
             cout << "Successfully changed username!" << endl;
           }
-          else {
+          else
+          {
             cout << "Username already exists. Failed to change username." << endl;
           }
         }
-        else if(editChoice == 3) {
+        else if (editChoice == 3)
+        {
           cout << "Enter new password: ";
           string pwd;
           cin >> pwd;
-          newAccount->editPassword(pwd);
+          newDoctor->editPassword(pwd);
         }
-        else if(editChoice == 4) {
+        else if (editChoice == 4)
+        {
+          cout << "Enter new address: ";
+          string address;
+          cin.ignore();
+          getline(cin, address);
+          newDoctor->editAddress(address);
+        }
+        else if (editChoice == 5)
+        {
           cout << "Enter new zipcode: ";
           string zipcode;
           cin >> zipcode;
-          newAccount->editZipcode(zipcode);
+          newDoctor->editZipcode(zipcode);
         }
-        else {
-          cout << "Invalid input. No edits made.";
+        else
+        {
+          cout << "Invalid input. No edits made." << endl;
         }
-        // displayDoctorAccount(&a);
-
+        print.printDocLoginInformation(*newDoctor);
+      }
       doctorPrompt();
       cin >> numChoice;
     }
     cout << "You have successfully logged out." << endl;
   }
-  else if(selection == "patient") {
+  else if (selection == "patient")
+  {
     userPrompt();
     int numChoice;
     cin >> numChoice;
-    while(numChoice != 5) {
-      if(numChoice == 1) {
-        cout << "Would you like to search by zipcode, name, or speciality?" << endl;
+    while (numChoice != 5)
+    {
+      if (numChoice == 1)
+      {
+        cout << "Would you like to search by zipcode, name, or speciality? (Enter \'z\' for zipcode, \'n\' for name, or \'s\' for specialtyn)" << endl;
         char searchChoice;
-        if(searchChoice == 'z' || searchChoice == 'Z') {
+        cin >> searchChoice;
+        if (searchChoice == 'z' || searchChoice == 'Z')
+        {
           cout << "Enter zipcode: ";
           string zipcode;
           cin >> zipcode;
           doctors.searchZipcode(zipcode);
         }
-        else if(searchChoice == 'n' || searchChoice == 'N') {
+        else if (searchChoice == 'n' || searchChoice == 'N')
+        {
           cout << "Enter name (in all caps i.e. \"JOHN DOE\"): ";
           string name;
-          cin >> name;
+          cin.ignore();
+          getline(cin, name);
           doctors.searchName(name);
         }
-        else if(searchChoice == 's' || searchChoice == 'S') {
+        else if (searchChoice == 's' || searchChoice == 'S')
+        {
           cout << "Enter specialty (in all caps i.e. \"CARDIOLOGY\"): ";
           string specialty;
           cin >> specialty;
           doctors.searchSpecialty(specialty);
         }
-        else{
+        else
+        {
           cout << "Invalid input." << endl;
         }
       }
-      else if(numChoice == 2) {
+      else if (numChoice == 2)
+      {
         cout << "Would you like to search by name or NPI? (enter \'N\' for name or \'I\' for NPI)" << endl;
         char search;
         cin >> search;
-        if(search == 'N' || search == 'n') {
+        if (search == 'N' || search == 'n')
+        {
           string name;
           cin >> name;
           doctors.searchName(name);
         }
-        else if(search == 'I' || search == 'i') {
+        else if (search == 'I' || search == 'i')
+        {
           string npi;
           cin >> npi;
           doctors.searchNPI(npi);
         }
-        else {
+        else
+        {
           cout << "Invalid input." << endl;
         }
       }
-      else if(numChoice == 3) {
+      else if (numChoice == 3)
+      {
         // printReviews(user);
       }
-      else if(numChoice == 4) {
-        // displayUser(user);
+      else if (numChoice == 4)
+      {
+        print.printUserLoginInformation(*newUser);
         cout << "what would you like to edit? (Enter 1 for name, 2 for username, 3 for password, 4 for address, 5 for zipcode) " << endl;
         int editChoice;
         cin >> editChoice;
-        if(editChoice == 1) {
+        if (editChoice == 1)
+        {
           cout << "Enter new name: ";
           string name;
           cin >> name;
-          newAccount->editName(name);
+          newUser->editName(name);
         }
-        else if(editChoice == 2) {
+        else if (editChoice == 2)
+        {
           cout << "Enter new username: ";
           string name;
           cin >> name;
-          if(usernameExists(name) == false) {
-            newAccount->editUsername(name);
+          if (doctors.usernameExists(name))
+          {
+            newUser->editUsername(name);
             cout << "Successfully changed username!" << endl;
           }
-          else {
+          else
+          {
             cout << "Username already exists. Failed to change username." << endl;
           }
         }
-        else if(editChoice == 3) {
+        else if (editChoice == 3)
+        {
           cout << "Enter new password: ";
           string pwd;
           cin >> pwd;
-          newAccount->editPassword(pwd);
+          newUser->editPassword(pwd);
         }
-        else if(editChoice == 4) {
+        else if (editChoice == 4)
+        {
           cout << "Enter new zipcode: ";
           string zipcode;
           cin >> zipcode;
-          newAccount->editZipcode(zipcode);
+          newUser->editZipcode(zipcode);
         }
-        else {
+        else
+        {
           cout << "Invalid input. No edits made." << endl;
         }
-        // displayUser(user);
+        print.printUserLoginInformation(*newUser);
       }
-      else {
+      else
+      {
         cout << "Invalid input. Try again!" << endl;
       }
 
@@ -208,9 +324,11 @@ int main() {
   return 0;
 }
 
-User* patientSignUp() {
+User *patientSignUp()
+{
   cout << "Name: ";
   string name;
+  cin.ignore();
   getline(cin, name);
   cout << "Username: ";
   string username;
@@ -220,17 +338,21 @@ User* patientSignUp() {
   cin >> password;
   cout << "Street Address Line: ";
   string address;
+  cin.ignore();
   getline(cin, address);
   cout << "Zipcode: ";
   string zipcode;
   cin >> zipcode;
-  User newUser = User(name, username, password, address, zipcode);
-  return &newUser;
+  User *newUser = new User(name, username, password, address, zipcode);
+  return newUser;
 }
 
-Doctor* doctorSignUp() {
+Doctor *doctorSignUp()
+{
   cout << "Name: ";
   string name;
+  cin.ignore();
+
   getline(cin, name);
   cout << "Username: ";
   string username;
@@ -240,13 +362,17 @@ Doctor* doctorSignUp() {
   cin >> password;
   cout << "Street Address Line: ";
   string address;
+  cin.ignore();
+
   getline(cin, address);
   cout << "Zipcode: ";
   string zipcode;
   cin >> zipcode;
   cout << "Phone Number (e.g. 123456789): ";
   string phone;
-  getline(cin, phone);
+  cin.ignore();
+
+  cin >> phone;
   cout << "NPI: ";
   string npi;
   cin >> npi;
@@ -255,35 +381,42 @@ Doctor* doctorSignUp() {
   cin >> cred;
   cout << "Specialty: ";
   string spec;
+  cin.ignore();
+
   getline(cin, spec);
   cout << "Do you offer telehealth? (enter Y for yes, N for no) ";
   char telehealth;
   cin >> telehealth;
   bool tele = false;
-  if(telehealth == 'Y' || telehealth == 'y') {
+  if (telehealth == 'Y' || telehealth == 'y')
+  {
     tele = true;
   }
   cout << "Facility name: ";
   string facility;
+  cin.ignore();
   getline(cin, facility);
-  Doctor newDoctor = Doctor(name, username, password, address, zipcode, phone, npi, cred, spec, tele, facility);
-  return &newDoctor;
+
+  Doctor *newDoctor = new Doctor(npi, name, username, password, cred, spec, tele, facility, address, zipcode, phone);
+  return newDoctor;
 }
 
-void doctorPrompt() {
+void doctorPrompt()
+{
   cout << "Would you like to..." << endl
-    << "1. Search for doctors" << endl
-    << "2. Edit info" << endl
-    << "3. Log out" << endl
-    << "Enter a number to select." << endl;
+       << "1. Search for doctors" << endl
+       << "2. Edit info" << endl
+       << "3. Log out" << endl
+       << "Enter a number to select." << endl;
 }
 
-void userPrompt() {
+void userPrompt()
+{
   cout << "Would you like to..." << endl
-    << "1. Search for doctors" << endl
-    << "2. Add to favorites" << endl
-    << "3. View your ratings" << endl
-    << "4. Edit info" << endl
-    << "5. Log out" << endl
-    << "Enter a number to select." << endl;
+       << "1. Search for doctors" << endl
+       << "2. Add to favorites" << endl
+       << "3. View your ratings" << endl
+       << "4. Edit info" << endl
+       << "5. Log out" << endl
+       << "Enter a number to select." << endl;
 }
