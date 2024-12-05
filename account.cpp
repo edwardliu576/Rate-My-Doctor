@@ -12,10 +12,6 @@ void Account::editZipcode(const string &newZipcode) {
     zipcode = newZipcode;
 }
 
-
-void Account::editZipcode(const string &newZipCode) {
-    zipcode = newZipCode;
-}
 void Account::editUsername(const string &newUn) {
     username = newUn;
 }
