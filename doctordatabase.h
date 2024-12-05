@@ -205,6 +205,6 @@ class doctordatabase {
     void searchName(const string &name); 
     void searchSpecialty(const string &spec); 
     bool usernameExists(const string &un);
-    Doctor doctorlogin(const string & un, const string & p);
+    Doctor* doctorlogin(const string & un, const string & p);
 };
 

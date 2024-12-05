@@ -42,8 +42,23 @@ void Ratings::displayReviews() const
     for (int i = 0; i < comments.size(); i++)
     {
         string review = comments[i];
-        cout << review << endl; 
+        cout << "Review #: " << i + 1 << endl; 
 
     }
     
+}
+void Ratings::editReview(int indexOfReview, double newRating, const string &newComment) 
+{
+    if(newRating > 0)
+    {
+        sumOfRatings = sumOfRatings - ratings[indexOfReview];
+        ratings[indexOfReview] = newRating; 
+        sumOfRatings = sumOfRatings + newRating; 
+    }
+    if (newComment != "n")
+    {
+        comments[indexOfReview] = newComment; 
+
+    }
+
 }
