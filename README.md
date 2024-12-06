@@ -133,7 +133,8 @@ What are the features that the project provides?
  
  ## Screenshots
  > Screenshots of the input/output after running your application
-> <img width="1512" alt="Screenshot 2024-12-06 at 9 36 27 AM" src="https://github.com/user-attachments/assets/130c240c-cf6c-42d3-9bcc-f8ff9330b6d0">
+>
+> <img width="1512" alt="Screenshot 2024-12-06 at 8 52 50 AM" src="https://github.com/user-attachments/assets/efa90329-010b-4ffb-aa7d-9a9331650bfa">
 > patient signs up on rate my doctor, then proceeds to choose to search for doctors within data set to find doctors within a zipcode.
 > <img width="1512" alt="Screenshot 2024-12-06 at 8 54 08 AM" src="https://github.com/user-attachments/assets/dc061dd8-bf56-40c6-8ade-8e3f02fe1e94">
 > patient then chooses to search the doctor data set by a specific name they remember to get their doctor information. 
