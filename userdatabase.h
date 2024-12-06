@@ -5,10 +5,12 @@
 #include <fstream>
 #include <sstream>
 #include "user.hpp"
+#include "doctor.h"
 
 using namespace std;
 
 class userDatabase {
+    friend class doctor;
     vector<User> users;
     string file;
 

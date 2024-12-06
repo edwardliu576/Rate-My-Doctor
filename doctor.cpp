@@ -27,3 +27,8 @@ string Doctor::getFacility() const{
 string Doctor::getPhone() const{
     return phone;
 }
+
+userRatings* Doctor::getRatings () const
+{
+    return reviews; 
+}

@@ -54,4 +54,24 @@ void Print::printUserLoginInformation(const User &userLogin)
     cout << "Address: " << userLogin.getAddress() << endl; 
     cout << "Zipcode: " << userLogin.getZipcode() << endl; 
 }
+void Print::printReview(const Ratings &review)
+{
+    if (review.ratings.empty())
+    {
+        cout << "No reviews found." << endl; 
+        return; 
+    }
+    cout << "Doctor's Reviews: " << endl; 
+    cout << "Total Reviews: " << review.getTotalReviews() << endl; 
+    cout << "Average Review: " << review.getUpdatedAverage() << endl; 
+    cout << "Reviews: " << endl; 
+    for (int i = 0; i < review.ratings.size(); i++)
+    {
+        cout << "Rating #: " << i+1 << endl; 
+        cout << "Review: " << "    " << review.ratings[i] << "   " << "Comment: " << review.comments[i] << endl;
+    }
+    cout << endl;;
+
+}
+
 

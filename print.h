@@ -24,6 +24,7 @@ class Print
     void printDocInformation(const Doctor &doctor);
     void printDocLoginInformation(const Doctor &docLogin); 
     void printUserLoginInformation(const User &userLogin);
+    void printReview(const Ratings &review); 
     static int main();
 
 }; 
