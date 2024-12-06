@@ -15,3 +15,8 @@ target_link_libraries(rateMyDoctorAllTests gtest gtest_main)
 add_executable(userTests usertests.cpp account.cpp doctor.cpp doctordatabase.cpp print.cpp ratings.cpp user.cpp userRatings.cpp)
 
 target_link_libraries(userTests gtest gtest_main)
+
+add_executable(runAllTests
+doctordatabasetest.cpp userDatabaseTests.cpp usertests.cpp account.cpp doctor.cpp doctordatabase.cpp print.cpp ratings.cpp user.cpp userRatings.cpp userdatabase.cpp
+)
+target_link_libraries(runAllTests gtest gtest_main)
