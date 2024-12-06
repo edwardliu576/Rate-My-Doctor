@@ -23,10 +23,10 @@ struct Account {
     void editUsername(const string &);
     void editPassword(const string &);
 
-    string getName();
-    string getAddress();
-    string getZipcode();
-    string getUsername();
-    string getPassword();
-    Ratings getRatings();
+    string getName() const;
+    string getAddress() const;
+    string getZipcode() const;
+    string getUsername() const;
+    string getPassword() const;
+    Ratings getRatings() const;
 };
