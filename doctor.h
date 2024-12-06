@@ -18,7 +18,7 @@ class Doctor: public Account {
     string zipcode;
     string phone;
     
-    vector <Ratings> ratings;
+    Ratings ratings;
     
     public:
         Doctor(const string &NPII, const string &n, const string &un, const string &pwd, const string &credd, const string &spec, const bool &tele, const string &hosp, const string & addy, const string& zip, const string& ph) : 
@@ -34,6 +34,6 @@ class Doctor: public Account {
         string getFacility() const;
         
         string getPhone() const;
-    //vector of doctors returned 
+        Ratings getRatings() const;
     
 };

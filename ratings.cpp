@@ -63,3 +63,7 @@ void Ratings::editReview(int indexOfReview, double newRating, const string &newC
     }
 
 }
+
+vector<string> Ratings::getComments(){
+    return comments;
+}

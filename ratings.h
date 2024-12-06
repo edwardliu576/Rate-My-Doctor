@@ -27,7 +27,8 @@ class Ratings
         double getTotalReviews() const; 
         void addComment(const string& review); 
         void displayReviews() const; 
-        void editReview(int newReview, double newRating, const string &newComment) ; 
+        void editReview(int newReview, double newRating, const string &newComment) ;
+        vector<string> getComments(); 
     
 
 }; 
