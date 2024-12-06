@@ -18,12 +18,7 @@ class Doctor: public Account {
     string address;
     string zipcode;
     string phone;
-<<<<<<< HEAD
-    
-    Ratings ratings;
-=======
     Ratings reviews = Ratings();
->>>>>>> origin/master
     
     public:
         Doctor(const string &NPII, const string &n, const string &un, const string &pwd, const string &credd, const string &spec, const bool &tele, const string &hosp, const string & addy, const string& zip, const string& ph) : 
@@ -39,9 +34,4 @@ class Doctor: public Account {
         string getFacility() const;
         Ratings* getRatings(); 
         string getPhone() const;
-<<<<<<< HEAD
-        Ratings getRatings() const;
-    
-=======
->>>>>>> origin/master
 };
