@@ -21,3 +21,7 @@ void User::deleteReview(int index){
 void User::addToFavorites(const Doctor &d){
     favoriteDoctors.push_back(d);
 }
+
+userRatings* User::getRatings() const{
+    return review; 
+}

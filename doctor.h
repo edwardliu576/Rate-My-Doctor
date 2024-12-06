@@ -3,9 +3,12 @@
 #include "account.h"
 #include "data.h"
 #include "ratings.h"
+#include "userRatings.h"
 #include <string>
 
 using namespace std;
+
+class userRatings;
 
 class Doctor: public Account {
     friend class User;
@@ -17,6 +20,7 @@ class Doctor: public Account {
     string address;
     string zipcode;
     string phone;
+    userRatings *reviews = nullptr;
     
     vector <Ratings> ratings;
     
@@ -32,7 +36,7 @@ class Doctor: public Account {
         string getSpecialty() const;
         bool getTele() const;
         string getFacility() const;
-        
+        userRatings *getRatings() const; 
         string getPhone() const;
     //vector of doctors returned 
     
