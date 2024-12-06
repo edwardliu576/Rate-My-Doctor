@@ -225,7 +225,7 @@ int main()
     userPrompt();
     int numChoice;
     cin >> numChoice;
-    while (numChoice != 5)
+    while (numChoice != 6)
     {
       if (numChoice == 1)
       {
@@ -283,15 +283,48 @@ int main()
       }
       else if (numChoice == 3)
       {
-        // print.printRatings(newUser.getRatings());
-        // cout << "Would you like to edit a rating? (enter \'Y\' for yes or \'N\' for no) << endl";
-        // char edit;
-        // cin >> edit;
-        // if(edit == 'Y' || edit == 'y') {
-
-        // }
+        if(newUser.getRatings().getTotalReviews() > 0) {
+          print.printRatings(newUser.getRatings());
+          cout << "Would you like to edit a rating? (enter \'Y\' for yes or \'N\' for no) << endl";
+          char edit;
+          cin >> edit;
+          if(edit == 'Y' || edit == 'y') {
+            cout << "Which rating would you like to edit? (enter number)";
+            int rateIndex;
+            cin >> rateIndex;
+            cout << "Enter new star count (0.0 if you would not like to change): ";
+            double stars;
+            cin >> stars;
+            cout << "Enter new comment (\'N\' if you would not like to leave a new comment): ";
+            string comment;
+            cin >> comment;
+            userRating rate = newUser.getRatings();
+            userRating.editRating(rateIndex, stars, comment);
+            if(stars != 0 || comment != "N") {
+              int npi = userRating.getNPI(rateIndex);
+              int docIndex = userRating.getDocIndex(rateIndex);
+              Doctor* doc = searchNPI(npi);
+              doc->getRatings().editRating(docIndex, stars, comment);
+            }
+          }
+        }
+        else {
+          cout << "You haven't left any reviews!";
+        }
       }
-      else if (numChoice == 4)
+      else if (numChoice == 4) {
+        cout << "Enter NPI of the doctor you would like to leave a review for: ";
+        string npi;
+        cin >> npi;
+        Doctor *doc = searchNPI(npi);
+        if(!doc) {
+         cout << "Doctor not found :(";
+         break;
+        }
+        int docIndex = doc->getRatings().addRating(stars, comment);
+        newUser.getRatings().addRating(stars, comment, docIndex, npi);
+      }
+      else if (numChoice == 5)
       {
         print.printUserLoginInformation(*newUser);
         cout << "what would you like to edit? (Enter 1 for name, 2 for username, 3 for password, 4 for address, 5 for zipcode) " << endl;
@@ -452,7 +485,8 @@ void userPrompt()
        << "1. Search for doctors" << endl
        << "2. Add to favorites" << endl
        << "3. View your ratings" << endl
-       << "4. Edit info" << endl
-       << "5. Log out" << endl
+       << "4. Add a rating" << endl
+       << "5. Edit info" << endl
+       << "6. Log out" << endl
        << "Enter a number to select." << endl;
 }
