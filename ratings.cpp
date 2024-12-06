@@ -35,19 +35,6 @@ double Ratings::getUpdatedAverage() const
     return averageOfRatings; 
 }
 
-void Ratings::displayReviews() const
-{
-    cout << "Total Reviews: " << getTotalReviews() << endl; 
-    cout << "Average Rating: " << getUpdatedAverage() << endl; 
-    cout << "Reviews: " << endl;  
-    for (int i = 0; i < comments.size(); i++)
-    {
-        string review = comments[i];
-        cout << "Review Number: " << i + 1 << endl; 
-
-    }
-    
-}
 void Ratings::editReview(int indexOfReview, double newRating, const string &newComment) 
 {
     if(newRating > 0)
