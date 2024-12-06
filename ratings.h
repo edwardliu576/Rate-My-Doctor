@@ -12,11 +12,10 @@ class Ratings
     int totalReviews; 
     double sumOfRatings; 
     double averageOfRatings;
+    public:
     vector<double> ratings; 
     vector<string> comments;
 
-
-    public: 
     Ratings(int total = 0, double sum = 0.0, double average = 0.0) 
     : totalReviews(total), sumOfRatings(sum), averageOfRatings(average)
     {
