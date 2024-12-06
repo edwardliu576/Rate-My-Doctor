@@ -20,18 +20,26 @@ void Account::editPassword(const string &newPwd) {
     password = newPwd;
 }
 
- string Account::getName() const{
+string Account::getName() const{
     return name;
- }
+}
+
 string Account::getAddress() const{
     return address;
 }
+
 string Account::getZipcode() const{
     return zipcode;
 }
+
 string Account::getUsername() const{
     return username;
 }
+
 string Account::getPassword() const{
     return password;
+}
+
+Ratings Account::getRatings() const{
+    return ratings;
 }
