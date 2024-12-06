@@ -79,11 +79,13 @@ What are the features that the project provides?
 
 ### Navigation Diagram
 > The diagram shows how users (either doctors, hospitals, or community users) will navigate through our application to access each feature. 
-![image](https://github.com/user-attachments/assets/c021c7e5-bc3c-4f76-97c6-d224bd2a6cb0)
+<img width="814" alt="Screenshot 2024-12-06 at 3 25 33 AM" src="https://github.com/user-attachments/assets/534e50bc-7bf2-44ae-8de5-7f6820b6e340">
+
 
 ### Screen Layouts
 > "screens" will take place in terminal. Below is an outline of what will be displayed.
-![image](https://github.com/user-attachments/assets/5530d0f7-9ded-4be8-8e0f-305130a56832)
+<img width="801" alt="Screenshot 2024-12-06 at 3 25 03 AM" src="https://github.com/user-attachments/assets/0b98defc-5096-45ed-8c7b-ff5cfefe7e77">
+
 
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
@@ -131,6 +133,23 @@ What are the features that the project provides?
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+>
+> <img width="1512" alt="Screenshot 2024-12-06 at 8 52 50 AM" src="https://github.com/user-attachments/assets/efa90329-010b-4ffb-aa7d-9a9331650bfa">
+> patient signs up on rate my doctor, then proceeds to choose to search for doctors within data set to find doctors within a zipcode.
+> <img width="1512" alt="Screenshot 2024-12-06 at 8 54 08 AM" src="https://github.com/user-attachments/assets/dc061dd8-bf56-40c6-8ade-8e3f02fe1e94">
+> patient then chooses to search the doctor data set by a specific name they remember to get their doctor information. 
+<img width="1512" alt="Screenshot 2024-12-06 at 8 57 10 AM" src="https://github.com/user-attachments/assets/a6dc747a-1099-4a8e-807f-8bde8938ae0d">
+> patient then proceeds to enter a rating and comment for one of her doctors, and then she goes in to view all of their ratings they gave, and then she then chooses to change the 1st rating from her list to update their rating for that specific doctor with the npi they entered to change for.  
+<img width="1512" alt="Screenshot 2024-12-06 at 9 06 00 AM" src="https://github.com/user-attachments/assets/49607e0f-f6c0-4842-b322-f05ebdba92fe">
+ > patient felt like changing their username information they use to login, therefore chose that option, changed it and ensured they were the only one on the platform with that username, in addition they logged out of the platform.
+>
+> <img width="778" alt="Screenshot 2024-12-06 at 9 13 07 AM" src="https://github.com/user-attachments/assets/f63e2c15-5ff6-421f-b419-0ba35e2ecb77">
+>doctor signs up on rate my doctor!
+> <img width="1205" alt="Screenshot 2024-12-06 at 10 33 20 AM" src="https://github.com/user-attachments/assets/42d38234-7e09-40bf-bbf2-1d23baf7ce64">
+-96f7-472e-b763-f8a68a3c2d64">
+> <img width="1213" alt="Screenshot 2024-12-06 at 10 34 14 AM" src="https://github.com/user-attachments/assets/e4c5864d-c51b-42b9-9131-7d2356c0468f">
+
+
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing

@@ -28,6 +28,12 @@ string Doctor::getPhone() const{
     return phone;
 }
 
+<<<<<<< HEAD
 Ratings Doctor::getRatings() const{
     return ratings;
+=======
+Ratings* Doctor::getRatings ()
+{
+    return &reviews; 
+>>>>>>> origin/master
 }

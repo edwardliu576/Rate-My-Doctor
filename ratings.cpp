@@ -1,69 +1,64 @@
 #include "ratings.h"
 #include <iostream>
 #include <vector>
-using namespace std; 
+using namespace std;
 
-void Ratings::addRating(double rating)
+
+void Ratings::addRating(double rating, const string &review)
 {
-    if (rating < 0.0 || rating > 5.0)
-    {
-        cout << "Invalid Rating, must enter a value from 0.0 to 5.0" << endl;
-    }
-    ratings.push_back(rating);
-    totalReviews = totalReviews + 1; 
-    sumOfRatings = sumOfRatings + rating;
+   if (rating < 0.0 || rating > 5.0)
+   {
+       cout << "Invalid Rating. Please enter a value from 0.0 to 5.0" << endl;
+       return;
+   }
+   totalReviews = totalReviews + 1;
+   sumOfRatings = sumOfRatings + rating;
+
+
+   ratings.push_back(rating);
+   comments.push_back(review);
+
 
 }
-double Ratings::averageRating() const 
+void Ratings::updateAverage()
 {
-    if(totalReviews == 0)
-    {
-        return 0.0; 
-    }
-    double avgRating = 0; 
-    avgRating = sumOfRatings / totalReviews;
-    return avgRating; 
-
+   if(totalReviews == 0)
+   {
+       averageOfRatings = 0.0;
+   }
+   averageOfRatings = sumOfRatings / totalReviews;
 }
+
+
 double Ratings::getTotalReviews() const
 {
-    return totalReviews;
+   return totalReviews;
 }
-
-void Ratings::addComment(const string& review)
+double Ratings::getUpdatedAverage() const
 {
-    comments.push_back(review); 
-    
+   return averageOfRatings;
 }
-void Ratings::displayReviews() const
+
+
+void Ratings::editReview(int indexOfReview, double newRating, const string &newComment)
 {
-    cout << "Total Reviews: " << totalReviews << endl; 
-    cout << "Average Rating: " << averageRating() << endl; 
-    cout << "Reviews: " << endl;  
-    for (int i = 0; i < comments.size(); i++)
-    {
-        string review = comments[i];
-        // cout << "Review #: " << i + 1 << endl; 
-        cout << "Review #" << i + 1 << ": " << comments[i] << std::endl;
-    }
-    
+   if(newRating > 0)
+   {
+       sumOfRatings = sumOfRatings - ratings[indexOfReview];
+       ratings[indexOfReview] = newRating;
+       sumOfRatings = sumOfRatings + newRating;
+   }
+   if (newComment != "n" ||newComment != "N"  )
+   {
+       comments[indexOfReview] = newComment;
+
+
+   }
+
+
 }
-void Ratings::editReview(int indexOfReview, double newRating, const string &newComment) 
+void Ratings::deleteReview(int indexOfReview)
 {
-    if(newRating > 0)
-    {
-        sumOfRatings = sumOfRatings - ratings[indexOfReview];
-        ratings[indexOfReview] = newRating; 
-        sumOfRatings = sumOfRatings + newRating; 
-    }
-    if (newComment != "n")
-    {
-        comments[indexOfReview] = newComment; 
-
-    }
-
+   ratings.erase(ratings.begin()+indexOfReview);
 }
 
-vector<string> Ratings::getComments(){
-    return comments;
-}

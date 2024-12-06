@@ -1,7 +1,6 @@
 #include "userdatabase.h"
 #include "doctor.h"
 #include "account.h"
-//include print class
 
 
 void userDatabase::addNewUser(const User &u){
@@ -24,6 +23,7 @@ void userDatabase::addNewUser(const User &u){
     }
     return false;
  }
+
 User* userDatabase::userLogin(const string & un, const string & p){
 
     User *u= nullptr;
@@ -38,9 +38,3 @@ User* userDatabase::userLogin(const string & un, const string & p){
     }
     return u;
 }
-
-// int main(){
-//     // userDatabase u = userDatabase("users.csv");
-//     // User newUser= User("silly billy", "billlikesfrogs", "googoo","123 chochoo ct","30221");
-//     // u.addNewUser(newUser);
-// }

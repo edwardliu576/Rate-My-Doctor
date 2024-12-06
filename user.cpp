@@ -6,10 +6,19 @@ void User::addToFavorites(const Doctor &d){
     favoriteDoctors.push_back(d);
 }
 
+<<<<<<< HEAD
 vector<Doctor> User::getFavoriteDoctors(){
     return favoriteDoctors;
 }
 
 Ratings& User::getUserReviews(){
     return userReviewsOfDoctors;
+=======
+userRatings* User::getRatings() {
+    return &review;
+}
+
+vector<Doctor> User::getFavoriteDoctors(){
+    return favoriteDoctors;
+>>>>>>> origin/master
 }

@@ -1,11 +1,12 @@
 #pragma once
-//still need to include account class
 #include "account.h"
-#include "data.h"
 #include "ratings.h"
+#include "userRatings.h"
 #include <string>
 
 using namespace std;
+
+class userRatings;
 
 class Doctor: public Account {
     friend class User;
@@ -17,8 +18,12 @@ class Doctor: public Account {
     string address;
     string zipcode;
     string phone;
+<<<<<<< HEAD
     
     Ratings ratings;
+=======
+    Ratings reviews = Ratings();
+>>>>>>> origin/master
     
     public:
         Doctor(const string &NPII, const string &n, const string &un, const string &pwd, const string &credd, const string &spec, const bool &tele, const string &hosp, const string & addy, const string& zip, const string& ph) : 
@@ -32,8 +37,11 @@ class Doctor: public Account {
         string getSpecialty() const;
         bool getTele() const;
         string getFacility() const;
-        
+        Ratings* getRatings(); 
         string getPhone() const;
+<<<<<<< HEAD
         Ratings getRatings() const;
     
+=======
+>>>>>>> origin/master
 };
