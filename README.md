@@ -99,7 +99,7 @@ What are the features that the project provides?
 > Change #2: Applied the single responsibility principle (SRP) by changing the location variables of the Account class from doubles to a string. Originally, there were two location variables: an x-coordinate and a y-coordinate. This change refocused the Account class's responsibility to have a more general representation of a location. This improved the code since now it is easier to maintain and extend without affecting other parts of the code (it is only necessary to change one thing now instead of two).
 > 
 > Change #3: Applied the Open-Closed Principle (OCP) and Dependency Inversion Principle (DIP) by replacing some inheritance relationships with aggregation. Specifically, the Review and Appointment classes now form aggregations with the User class instead of inheriting from the Account class. This improved the code because aggregation makes the system more flexible, and new components and behavior can be extended without changing the existing code (OCP). Additionally, the high-level logic now no longer depends on the low-level details (DIP).
-<img width="1132" alt="image" src="https://github.com/user-attachments/assets/402b4f53-58cf-4299-9fab-b4ef69a084da">
+![IMG_0391](https://github.com/user-attachments/assets/5c7af2a9-0300-40e4-97b0-03c51f28f511)
 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
@@ -152,6 +152,12 @@ What are the features that the project provides?
 
  ## Installation/Usage
  > Instructions on installing and running your application
+> installation: clone the repo from github
+> command: g++ main.cpp account.cpp doctordatabase.cpp ratings.cpp user.cpp userdatabase.cpp print.cpp doctor.cpp userRatings.cpp
+> run executable: ./a.out
+> follow user input to use!
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+> use CMake and google test
+> Cmake .    make    ./runAllTests
  
