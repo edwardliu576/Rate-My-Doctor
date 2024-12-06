@@ -79,12 +79,13 @@ What are the features that the project provides?
 
 ### Navigation Diagram
 > The diagram shows how users (either doctors, hospitals, or community users) will navigate through our application to access each feature. 
-<img width="825" alt="Screenshot 2024-12-06 at 2 43 14 AM" src="https://github.com/user-attachments/assets/667aac00-261b-4906-8ae3-8e25ea0f68ce">
+<img width="814" alt="Screenshot 2024-12-06 at 3 25 33 AM" src="https://github.com/user-attachments/assets/534e50bc-7bf2-44ae-8de5-7f6820b6e340">
 
 
 ### Screen Layouts
 > "screens" will take place in terminal. Below is an outline of what will be displayed.
-![image](https://github.com/user-attachments/assets/5530d0f7-9ded-4be8-8e0f-305130a56832)
+<img width="801" alt="Screenshot 2024-12-06 at 3 25 03 AM" src="https://github.com/user-attachments/assets/0b98defc-5096-45ed-8c7b-ff5cfefe7e77">
+
 
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
