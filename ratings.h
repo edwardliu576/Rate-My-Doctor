@@ -13,20 +13,23 @@ class Ratings
     double sumOfRatings; 
     double averageOfRatings;
     vector<double> ratings; 
-    vector<string> comments; 
+    vector<string> comments;
 
+
+    public: 
     Ratings(int total = 0, double sum = 0.0, double average = 0.0) 
     : totalReviews(total), sumOfRatings(sum), averageOfRatings(average)
     {
 
     }
 
-    void addRating(double rating); 
-    double averageRating() const; 
+    void addRating(double rating, const string &review);  
+    void updateAverage(); 
     double getTotalReviews() const; 
-    void addComment(const string& review); 
+    double getUpdatedAverage() const; 
     void displayReviews() const; 
-    void editReview(int newReview, double newRating, const string &newComment) ; 
+    void editReview(int indexOfReview, double newRating, const string &newComment); 
+    void deleteReview(int indexOfReview); 
     
 
 }; 
