@@ -19,6 +19,7 @@ void Ratings::addRating(double rating, const string &review)
    comments.push_back(review);
 
 
+
 }
 void Ratings::updateAverage()
 {
@@ -38,7 +39,6 @@ double Ratings::getUpdatedAverage() const
 {
    return averageOfRatings;
 }
-
 
 void Ratings::editReview(int indexOfReview, double newRating, const string &newComment)
 {

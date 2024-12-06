@@ -19,7 +19,7 @@ class Ratings
    vector<double> ratings;
    vector<string> comments;
 
-
+public:
    Ratings(int total = 0, double sum = 0.0, double average = 0.0)
    : totalReviews(total), sumOfRatings(sum), averageOfRatings(average)
    {
@@ -35,8 +35,6 @@ class Ratings
    void displayReviews() const;
    void editReview(int indexOfReview, double newRating, const string &newComment);
    void deleteReview(int indexOfReview);
-  
-
 
 };
 
