@@ -1,6 +1,4 @@
 #include "userRatings.h"
-//#include "doctor.h"
-//#include "doctordatabase.h"
 #include <iostream>
 #include <vector>
 using namespace std; 
@@ -20,17 +18,26 @@ void userRatings::addRating(double rating, const string &review, int docIndex, c
     comments.push_back(review); 
     npidata.push_back(npi); 
     docIndexes.push_back(docIndex); 
+    updateAverage();
 
 }
 
 string userRatings::getNPI(int indexOfReview)
 {
-    return npidata[indexOfReview]; 
+    if (indexOfReview < 0 || indexOfReview >= npidata.size()) {
+        cout << "Invalid review index!" << endl;
+        return "";
+    }
+    return npidata.at(indexOfReview); 
 
 }
 int userRatings::getDocIndex(int docIndex)
 {
-    return docIndexes[docIndex]; 
+   if (docIndex < 0 || docIndex >= docIndexes.size()) {
+        cout << "Invalid review index!" << endl;
+        return -1;
+    }
+    return docIndexes.at(docIndex);
 }
 void userRatings::updateAverage() 
 {
@@ -52,6 +59,10 @@ double userRatings::getUpdatedAverage() const
 
 void userRatings::editRating(int indexOfReview, double newRating, const string &newComment) 
 {
+    if (indexOfReview < 0 || indexOfReview >= ratings.size()) {
+        cout << "Invalid review index!" << endl;
+        return;
+    }
 
     if(newRating != 0)
     {
@@ -59,7 +70,7 @@ void userRatings::editRating(int indexOfReview, double newRating, const string &
         ratings[indexOfReview] = newRating; 
         sumOfRatings = sumOfRatings + newRating; 
     }
-    if (newComment != "n" || newComment != "N"  )
+    if (newComment != "n" && newComment != "N"  )
     {
         comments[indexOfReview] = newComment; 
 

@@ -2,7 +2,7 @@
 #include "doctor.h"
 #include "account.h"
 #include "print.h"
-//include print class
+
 
 
 void doctordatabase::addNewDoctor(const Doctor &d){
@@ -12,7 +12,7 @@ void doctordatabase::addNewDoctor(const Doctor &d){
     if(!myfile.is_open()) {
         throw runtime_error("Unable to open file");
     }
-    myfile <<"\n"<< d.getNPI() << ","<< d.getName()<< "," << d.getUsername() << "," << d.getPassword()<< "," << d.getCred() << ","<<d.getSpecialty()<< "," <<d.getTele() << ","<<d.getFacility() << ","<<d.getAddress()<< ","<<d.getZipcode()<< "," <<d.getPhone()<< "\n";
+    myfile <<"\n"<< d.getNPI() << "," << d.getUsername() << "," << d.getPassword()<< "," << d.getName()<< ","<< d.getCred() << ","<<d.getSpecialty()<< "," <<d.getTele() << ","<<d.getFacility() << ","<<d.getAddress()<< ","<<d.getZipcode()<< "," <<d.getPhone()<< "\n";
     myfile.close();
 
 }
@@ -23,7 +23,6 @@ void doctordatabase::searchZipcode(const string &zip){
             Print print = Print();
             print.printDocInformation(doctors.at(i));
             exists = true;
-            //add in prints from print class 
         }
     }
      if(!exists) {
@@ -37,8 +36,7 @@ void doctordatabase::searchName(const string &name){
         if(doctors.at(i).getName()==name){
             Print print = Print();
             print.printDocInformation(doctors.at(i));
-            exists = true;
-            //add in prints from print class 
+            exists = true; 
         }
     }
     if(!exists) {
@@ -47,10 +45,12 @@ void doctordatabase::searchName(const string &name){
 }
 Doctor* doctordatabase::searchNPI(const string &nip){
     Doctor *newDoc= nullptr;
-    bool exists = false;
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getNPI()==nip){
             newDoc= &doctors.at(i); 
+            Print print = Print();
+            print.printDocInformation(doctors.at(i));
+            
         }
     }
     return newDoc;
@@ -71,6 +71,7 @@ void doctordatabase::searchSpecialty(const string &spec){
  bool doctordatabase::usernameExists(const string &un){
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getUsername()==un){
+            
             return true;
         }
     }

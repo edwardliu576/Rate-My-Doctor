@@ -119,9 +119,11 @@ int main()
         cin >> search;
         if (search == 'N' || search == 'n')
         {
+          cout << "Enter name according in this form: Lastname, Firstname i.e. Silly, Billy"<< endl;
           cout << "Enter name: ";
           string name;
-          cin >> name;
+          cin.ignore();
+          getline(cin, name);
           doctors.searchName(name);
         }
         else if (search == 'I' || search == 'i')
@@ -154,14 +156,16 @@ int main()
         {
           cout << "Enter new name: ";
           string name;
-          cin >> name;
+          cin.ignore();
+          getline(cin, name);
           newDoctor->editName(name);
         }
         else if (editChoice == 2)
         {
           cout << "Enter new username: ";
           string name;
-          cin >> name;
+          cin.ignore();
+          getline(cin, name);
           if (doctors.usernameExists(name) == false)
           {
             newDoctor->editUsername(name);
@@ -176,7 +180,8 @@ int main()
         {
           cout << "Enter new password: ";
           string pwd;
-          cin >> pwd;
+          cin.ignore();
+          getline(cin, pwd);
           newDoctor->editPassword(pwd);
         }
         else if (editChoice == 4)
@@ -198,14 +203,16 @@ int main()
         {
           cout << "Enter new specialty: ";
           string spec;
-          cin >> spec;
+          cin.ignore();
+          getline(cin, spec);
           newDoctor->editSpecialty(spec);
         }
         else if (editChoice == 7)
         {
           cout << "Enter new facility: ";
           string fac;
-          cin >> fac;
+          cin.ignore();
+          getline(cin, fac);
           newDoctor->editHospital(fac);
         }
         else
@@ -250,7 +257,8 @@ int main()
         {
           cout << "Enter specialty (in all caps i.e. \"CARDIOLOGY\"): ";
           string specialty;
-          cin >> specialty;
+          cin.ignore();
+          getline(cin, specialty);
           doctors.searchSpecialty(specialty);
         }
         else
@@ -265,8 +273,10 @@ int main()
         cin >> search;
         if (search == 'N' || search == 'n')
         {
+          cout << "Enter name according in this form: Lastname, Firstname i.e. Silly, Billy"<< endl;
           string name;
-          cin >> name;
+          cin.ignore();
+          getline(cin, name);
           doctors.searchName(name);
         }
         else if (search == 'I' || search == 'i')
@@ -297,14 +307,16 @@ int main()
             cin >> stars;
             cout << "Enter new comment (\'N\' if you would not like to leave a new comment): ";
             string comment;
-            cin >> comment;
+            cin.ignore();
+          getline(cin, comment);
             userRatings rate = *(newUser->getRatings());
-            rate.editRating(rateIndex, stars, comment);
+            rate.editRating(rateIndex-1, stars, comment);
             if(stars != 0 || comment != "N") {
-              string npi = rate.getNPI(rateIndex);
-              int docIndex = rate.getDocIndex(rateIndex);
+              string npi = rate.getNPI(rateIndex-1);
+              int docIndex = rate.getDocIndex(rateIndex-1);
               Doctor* doc = doctors.searchNPI(npi);
               doc->getRatings()->editReview(docIndex, stars, comment);
+              newUser->getRatings()->editRating(docIndex, stars, comment);
             }
           }
         }
@@ -326,7 +338,8 @@ int main()
         cin >> stars;
         cout << "Enter comment: ";
         string comment;
-        cin >> comment;
+        cin.ignore();
+        getline(cin, comment);
         doc->getRatings()->addRating(stars, comment);
         int docIndex = doc->getRatings()->getTotalReviews()-1;
         newUser->getRatings()->addRating(stars, comment, docIndex, npi);
@@ -344,15 +357,17 @@ int main()
         {
           cout << "Enter new name: ";
           string name;
-          cin >> name;
+          cin.ignore();
+          getline(cin, name);
           newUser->editName(name);
         }
         else if (editChoice == 2)
         {
           cout << "Enter new username: ";
           string name;
-          cin >> name;
-          if (doctors.usernameExists(name))
+          cin.ignore();
+          getline(cin, name);
+          if (!doctors.usernameExists(name))
           {
             newUser->editUsername(name);
             cout << "Successfully changed username!" << endl;
@@ -366,14 +381,16 @@ int main()
         {
           cout << "Enter new password: ";
           string pwd;
-          cin >> pwd;
+          cin.ignore();
+          getline(cin, pwd);
           newUser->editPassword(pwd);
         }
         else if (editChoice == 4)
         {
           cout << "Enter new address: ";
           string add;
-          cin >> add;
+          cin.ignore();
+          getline(cin, add);
           newUser->editAddress(add);
         }
         else if (editChoice == 5)
@@ -399,8 +416,9 @@ int main()
     }
     cout << "You have successfully logged out." << endl;
   }
-  delete newDoctor;
-  delete newUser;
+  
+  newDoctor=nullptr;
+  newUser=nullptr;
 
   return 0;
 }
