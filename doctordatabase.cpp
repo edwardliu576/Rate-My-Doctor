@@ -50,7 +50,7 @@ Doctor* doctordatabase::searchNPI(const string &nip){
     bool exists = false;
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getNPI()==nip){
-            *newDoc= doctors.at(i); 
+            newDoc= &doctors.at(i); 
         }
     }
     return newDoc;

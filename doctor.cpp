@@ -28,7 +28,7 @@ string Doctor::getPhone() const{
     return phone;
 }
 
-userRatings* Doctor::getRatings () const
+Ratings* Doctor::getRatings ()
 {
-    return reviews; 
+    return &reviews; 
 }

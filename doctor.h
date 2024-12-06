@@ -1,7 +1,6 @@
 #pragma once
 //still need to include account class
 #include "account.h"
-#include "data.h"
 #include "ratings.h"
 #include "userRatings.h"
 #include <string>
@@ -20,9 +19,7 @@ class Doctor: public Account {
     string address;
     string zipcode;
     string phone;
-    userRatings *reviews = nullptr;
-    
-    vector <Ratings> ratings;
+    Ratings reviews = Ratings();
     
     public:
         Doctor(const string &NPII, const string &n, const string &un, const string &pwd, const string &credd, const string &spec, const bool &tele, const string &hosp, const string & addy, const string& zip, const string& ph) : 
@@ -36,8 +33,6 @@ class Doctor: public Account {
         string getSpecialty() const;
         bool getTele() const;
         string getFacility() const;
-        userRatings *getRatings() const; 
+        Ratings* getRatings(); 
         string getPhone() const;
-    //vector of doctors returned 
-    
 };

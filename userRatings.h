@@ -1,5 +1,5 @@
-#ifndef RATINGS_H
-#define RATINGS_H
+#ifndef USERRATINGS_H
+#define USERRATINGS_H
 #include <string>
 #include <vector>
 
@@ -22,7 +22,8 @@ public:
         : totalReviews(total), sumOfRatings(sum), averageOfRatings(average)
     {
     }
-    void userRatings::addRating(double rating, const string &review, int indexOfReview, const string &npi);
+
+    void addRating(double rating, const string &review, int indexOfReview, const string &npi);
     string getNPI(int indexOfReview);
     int getDocIndex(int docIndex);
     void getRating();

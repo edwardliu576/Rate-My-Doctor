@@ -39,7 +39,3 @@ string Account::getUsername() const{
 string Account::getPassword() const{
     return password;
 }
-
-Ratings Account::getRatings() const{
-    return ratings;
-}

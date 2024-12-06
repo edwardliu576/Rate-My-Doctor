@@ -13,7 +13,6 @@ void userRatings::addRating(double rating, const string &review, int docIndex, c
         return; 
     }
     
-    cout << "Please Enter NPI: "  << " " << npi << endl; 
     totalReviews = totalReviews + 1; 
     sumOfRatings = sumOfRatings + rating;
 
@@ -54,13 +53,13 @@ double userRatings::getUpdatedAverage() const
 void userRatings::editRating(int indexOfReview, double newRating, const string &newComment) 
 {
 
-    if(newRating != -1)
+    if(newRating != 0)
     {
         sumOfRatings = sumOfRatings - ratings[indexOfReview];
         ratings[indexOfReview] = newRating; 
         sumOfRatings = sumOfRatings + newRating; 
     }
-    if (newComment == "n" ||newComment == "N"  )
+    if (newComment != "n" || newComment != "N"  )
     {
         comments[indexOfReview] = newComment; 
 
