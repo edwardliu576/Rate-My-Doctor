@@ -38,9 +38,3 @@ User* userDatabase::userLogin(const string & un, const string & p){
     }
     return u;
 }
-
-// int main(){
-//     // userDatabase u = userDatabase("users.csv");
-//     // User newUser= User("silly billy", "billlikesfrogs", "googoo","123 chochoo ct","30221");
-//     // u.addNewUser(newUser);
-// }

@@ -54,7 +54,7 @@ void Print::printUserLoginInformation(const User &userLogin)
     cout << "Address: " << userLogin.getAddress() << endl; 
     cout << "Zipcode: " << userLogin.getZipcode() << endl; 
 }
-void Print::printReview(const Ratings &review)
+void Print::printReview(userRatings &review)
 {
     if (review.ratings.empty())
     {
@@ -68,7 +68,7 @@ void Print::printReview(const Ratings &review)
     for (int i = 0; i < review.ratings.size(); i++)
     {
         cout << "Rating #: " << i+1 << endl; 
-        cout << "Review: " << "    " << review.ratings[i] << "   " << "Comment: " << review.comments[i] << endl;
+        cout << "Stars: " << review.ratings[i] << "   " << "Comment: " << review.comments[i] << endl;
     }
     cout << endl;;
 

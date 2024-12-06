@@ -4,7 +4,6 @@
 #include "doctordatabase.h"
 #include "userdatabase.h"
 #include "print.h"
-#include <string>
 
 using namespace std;
 Doctor *doctorSignUp();
@@ -283,13 +282,14 @@ int main()
       }
       else if (numChoice == 3)
       {
-        if(newUser.getRatings().getTotalReviews() > 0) {
-          print.printRatings(newUser.getRatings());
-          cout << "Would you like to edit a rating? (enter \'Y\' for yes or \'N\' for no) << endl";
+        if(newUser->getRatings()->getTotalReviews() > 0) {
+          userRatings toPrint = *(newUser->getRatings());
+          print.printReview(toPrint);
+          cout << "Would you like to edit a rating? (enter \'Y\' for yes or \'N\' for no)" << endl;
           char edit;
           cin >> edit;
           if(edit == 'Y' || edit == 'y') {
-            cout << "Which rating would you like to edit? (enter number)";
+            cout << "Which rating would you like to edit? (enter number) ";
             int rateIndex;
             cin >> rateIndex;
             cout << "Enter new star count (0.0 if you would not like to change): ";
@@ -298,32 +298,41 @@ int main()
             cout << "Enter new comment (\'N\' if you would not like to leave a new comment): ";
             string comment;
             cin >> comment;
-            userRating rate = newUser.getRatings();
-            userRating.editRating(rateIndex, stars, comment);
+            userRatings rate = *(newUser->getRatings());
+            rate.editRating(rateIndex, stars, comment);
             if(stars != 0 || comment != "N") {
-              int npi = userRating.getNPI(rateIndex);
-              int docIndex = userRating.getDocIndex(rateIndex);
-              Doctor* doc = searchNPI(npi);
-              doc->getRatings().editRating(docIndex, stars, comment);
+              string npi = rate.getNPI(rateIndex);
+              int docIndex = rate.getDocIndex(rateIndex);
+              Doctor* doc = doctors.searchNPI(npi);
+              doc->getRatings()->editReview(docIndex, stars, comment);
             }
           }
         }
         else {
-          cout << "You haven't left any reviews!";
+          cout << "You haven't left any ratings!" << endl << endl;
         }
       }
       else if (numChoice == 4) {
         cout << "Enter NPI of the doctor you would like to leave a review for: ";
         string npi;
         cin >> npi;
-        Doctor *doc = searchNPI(npi);
+        Doctor *doc = doctors.searchNPI(npi);
         if(!doc) {
-         cout << "Doctor not found :(";
+         cout << "Doctor not found :(" << endl << endl;
          break;
         }
-        doc->getRatings().addRating(stars, comment);
-        int docIndex = doc->getRatings().getTotalReviews-1;
-        newUser.getRatings().addRating(stars, comment, docIndex, npi);
+        cout << "Enter stars: ";
+        double stars;
+        cin >> stars;
+        cout << "Enter comment: ";
+        string comment;
+        cin >> comment;
+        doc->getRatings()->addRating(stars, comment);
+        int docIndex = doc->getRatings()->getTotalReviews()-1;
+        newUser->getRatings()->addRating(stars, comment, docIndex, npi);
+        userRatings toPrint = *(newUser->getRatings());
+        cout << endl;
+        print.printReview(toPrint);
       }
       else if (numChoice == 5)
       {
@@ -390,6 +399,8 @@ int main()
     }
     cout << "You have successfully logged out." << endl;
   }
+  delete newDoctor;
+  delete newUser;
 
   return 0;
 }
