@@ -1,8 +1,14 @@
 #include "account.h"
+#include "data.h"
+#include "doctor.h"
+#include "doctordatabase.h"
+#include "print.h"
+#include "ratings.h"
+#include "user.hpp"
+#include "userdatabase.h"
 
 #include <gtest/gtest.h>
 
-//starting off with testing the account class
 //testing constructor and getter methods all together
 TEST(AccountTest, ConstructorAndGetters) {
     Account acc("James Chapman", "programjames", "verynice", "382 Programming Ln", "25325");
