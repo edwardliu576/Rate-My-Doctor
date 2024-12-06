@@ -321,7 +321,8 @@ int main()
          cout << "Doctor not found :(";
          break;
         }
-        int docIndex = doc->getRatings().addRating(stars, comment);
+        doc->getRatings().addRating(stars, comment);
+        int docIndex = doc->getRatings().getTotalReviews-1;
         newUser.getRatings().addRating(stars, comment, docIndex, npi);
       }
       else if (numChoice == 5)
