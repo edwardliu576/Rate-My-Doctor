@@ -79,7 +79,8 @@ What are the features that the project provides?
 
 ### Navigation Diagram
 > The diagram shows how users (either doctors, hospitals, or community users) will navigate through our application to access each feature. 
-![image](https://github.com/user-attachments/assets/c021c7e5-bc3c-4f76-97c6-d224bd2a6cb0)
+<img width="825" alt="Screenshot 2024-12-06 at 2 43 14 AM" src="https://github.com/user-attachments/assets/667aac00-261b-4906-8ae3-8e25ea0f68ce">
+
 
 ### Screen Layouts
 > "screens" will take place in terminal. Below is an outline of what will be displayed.
