@@ -3,50 +3,37 @@
 #include <vector>
 using namespace std; 
 
-void Ratings::addRating(double rating)
+void Ratings::addRating(double rating, const string &review)
 {
     if (rating < 0.0 || rating > 5.0)
     {
-        cout << "Invalid Rating, must enter a value from 0.0 to 5.0" << endl;
+        cout << "Invalid Rating. Please enter a value from 0.0 to 5.0" << endl; 
+        return; 
     }
     ratings.push_back(rating);
     totalReviews = totalReviews + 1; 
     sumOfRatings = sumOfRatings + rating;
 
+    ratings.push_back(rating); 
+    comments.push_back(review); 
+
 }
-double Ratings::averageRating() const 
+void Ratings::updateAverage() 
 {
     if(totalReviews == 0)
     {
-        return 0.0; 
+        averageOfRatings = 0.0; 
     }
-    double avgRating = 0; 
-    avgRating = sumOfRatings / totalReviews;
-    return avgRating; 
-
+    averageOfRatings = sumOfRatings / totalReviews;
 }
+
 double Ratings::getTotalReviews() const
 {
     return totalReviews;
 }
-
-void Ratings::addComment(const string& review)
+double Ratings::getUpdatedAverage() const
 {
-    comments.push_back(review); 
-    
-}
-void Ratings::displayReviews() const
-{
-    cout << "Total Reviews: " << totalReviews << endl; 
-    cout << "Average Rating: " << averageRating() << endl; 
-    cout << "Reviews: " << endl;  
-    for (int i = 0; i < comments.size(); i++)
-    {
-        string review = comments[i];
-        // cout << "Review #: " << i + 1 << endl; 
-        cout << "Review #" << i + 1 << ": " << comments[i] << std::endl;
-    }
-    
+    return averageOfRatings; 
 }
 void Ratings::editReview(int indexOfReview, double newRating, const string &newComment) 
 {
@@ -56,14 +43,14 @@ void Ratings::editReview(int indexOfReview, double newRating, const string &newC
         ratings[indexOfReview] = newRating; 
         sumOfRatings = sumOfRatings + newRating; 
     }
-    if (newComment != "n")
+    if (newComment != "n" ||newComment != "N"  )
     {
         comments[indexOfReview] = newComment; 
 
     }
 
 }
-
-vector<string> Ratings::getComments(){
-    return comments;
+void Ratings::deleteReview(int indexOfReview)
+{
+    ratings.erase(ratings.begin()+indexOfReview); 
 }

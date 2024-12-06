@@ -6,10 +6,10 @@ void User::addToFavorites(const Doctor &d){
     favoriteDoctors.push_back(d);
 }
 
-vector<Doctor> User::getFavoriteDoctors(){
-    return favoriteDoctors;
+userRatings* User::getRatings() {
+    return &review;
 }
 
-Ratings& User::getUserReviews(){
-    return userReviewsOfDoctors;
+vector<Doctor> User::getFavoriteDoctors(){
+    return favoriteDoctors;
 }

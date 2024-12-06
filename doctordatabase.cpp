@@ -17,12 +17,17 @@ void doctordatabase::addNewDoctor(const Doctor &d){
 
 }
 void doctordatabase::searchZipcode(const string &zip){
+    bool exists = false;
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getZipcode()==zip){
             Print print = Print();
             print.printDocInformation(doctors.at(i));
+            exists = true;
             //add in prints from print class 
         }
+    }
+     if(!exists) {
+        cout << "Doctor not found. :("<< endl;
     }
 }
 
@@ -37,29 +42,30 @@ void doctordatabase::searchName(const string &name){
         }
     }
     if(!exists) {
-        cout << "Doctor not found. :(";
+        cout << "Doctor not found. :("<< endl;
     }
 }
-void doctordatabase::searchNPI(const string &nip){
+Doctor* doctordatabase::searchNPI(const string &nip){
+    Doctor *newDoc= nullptr;
     bool exists = false;
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getNPI()==nip){
-            Print print = Print();
-            print.printDocInformation(doctors.at(i));
-            exists = true;
+            newDoc= &doctors.at(i); 
         }
     }
-    if(!exists) {
-        cout << "Doctor not found. :(";
-    }
+    return newDoc;
 }
 void doctordatabase::searchSpecialty(const string &spec){
+    bool exists=false;
     for(int i=0; i < doctors.size(); i++){
         if(doctors.at(i).getSpecialty()==spec){
             Print print = Print();
             print.printDocInformation(doctors.at(i));
-
+            exists=true;
         }
+    }
+     if(!exists) {
+        cout << "Doctor not found. :("<< endl;
     }
 }
  bool doctordatabase::usernameExists(const string &un){

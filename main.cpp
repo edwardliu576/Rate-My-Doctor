@@ -4,7 +4,6 @@
 #include "doctordatabase.h"
 #include "userdatabase.h"
 #include "print.h"
-#include <string>
 
 using namespace std;
 Doctor *doctorSignUp();
@@ -29,7 +28,7 @@ int main()
   {
     cout << "Are you a healthcare provider or patient? (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
     cin >> input;
-    while (input)
+    while (true)
     {
       if (input == 'H' || input == 'h')
       {
@@ -48,6 +47,7 @@ int main()
       else
       {
         cout << "Please enter a valid input (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
+        cin >> input;
       }
     }
   }
@@ -90,7 +90,7 @@ int main()
             cout << "Password is incorrect. Failed to log-in.";
             return 0;
           }
-          selection == "patient";
+          selection = "patient";
         }
         else {
           cout << "There is no account that matches that username!" << endl;
@@ -139,7 +139,15 @@ int main()
       else if (numChoice == 2)
       {
         print.printDocLoginInformation(*newDoctor);
-        cout << "what would you like to edit? (Enter 1 for name, 2 for username, 3 for password, 4 for address, 5 for zipcode) " << endl;
+         cout << "what would you like to edit?" << endl
+             << "1. name" << endl
+             << "2. username" << endl
+             << "3. password" << endl
+             << "4. for address" << endl
+             << "5. zipcode" << endl
+             << "6. specialty" << endl
+             << "7. facility" << endl
+             << "Enter your choice 1-7." << endl;
         int editChoice;
         cin >> editChoice;
         if (editChoice == 1)
@@ -186,6 +194,20 @@ int main()
           cin >> zipcode;
           newDoctor->editZipcode(zipcode);
         }
+        else if (editChoice == 6)
+        {
+          cout << "Enter new specialty: ";
+          string spec;
+          cin >> spec;
+          newDoctor->editSpecialty(spec);
+        }
+        else if (editChoice == 7)
+        {
+          cout << "Enter new facility: ";
+          string fac;
+          cin >> fac;
+          newDoctor->editHospital(fac);
+        }
         else
         {
           cout << "Invalid input. No edits made." << endl;
@@ -202,7 +224,7 @@ int main()
     userPrompt();
     int numChoice;
     cin >> numChoice;
-    while (numChoice != 5)
+    while (numChoice != 6)
     {
       if (numChoice == 1)
       {
@@ -260,9 +282,59 @@ int main()
       }
       else if (numChoice == 3)
       {
-        // printReviews(user);
+        if(newUser->getRatings()->getTotalReviews() > 0) {
+          userRatings toPrint = *(newUser->getRatings());
+          print.printReview(toPrint);
+          cout << "Would you like to edit a rating? (enter \'Y\' for yes or \'N\' for no)" << endl;
+          char edit;
+          cin >> edit;
+          if(edit == 'Y' || edit == 'y') {
+            cout << "Which rating would you like to edit? (enter number) ";
+            int rateIndex;
+            cin >> rateIndex;
+            cout << "Enter new star count (0.0 if you would not like to change): ";
+            double stars;
+            cin >> stars;
+            cout << "Enter new comment (\'N\' if you would not like to leave a new comment): ";
+            string comment;
+            cin >> comment;
+            userRatings rate = *(newUser->getRatings());
+            rate.editRating(rateIndex, stars, comment);
+            if(stars != 0 || comment != "N") {
+              string npi = rate.getNPI(rateIndex);
+              int docIndex = rate.getDocIndex(rateIndex);
+              Doctor* doc = doctors.searchNPI(npi);
+              doc->getRatings()->editReview(docIndex, stars, comment);
+            }
+          }
+        }
+        else {
+          cout << "You haven't left any ratings!" << endl << endl;
+        }
       }
-      else if (numChoice == 4)
+      else if (numChoice == 4) {
+        cout << "Enter NPI of the doctor you would like to leave a review for: ";
+        string npi;
+        cin >> npi;
+        Doctor *doc = doctors.searchNPI(npi);
+        if(!doc) {
+         cout << "Doctor not found :(" << endl << endl;
+         break;
+        }
+        cout << "Enter stars: ";
+        double stars;
+        cin >> stars;
+        cout << "Enter comment: ";
+        string comment;
+        cin >> comment;
+        doc->getRatings()->addRating(stars, comment);
+        int docIndex = doc->getRatings()->getTotalReviews()-1;
+        newUser->getRatings()->addRating(stars, comment, docIndex, npi);
+        userRatings toPrint = *(newUser->getRatings());
+        cout << endl;
+        print.printReview(toPrint);
+      }
+      else if (numChoice == 5)
       {
         print.printUserLoginInformation(*newUser);
         cout << "what would you like to edit? (Enter 1 for name, 2 for username, 3 for password, 4 for address, 5 for zipcode) " << endl;
@@ -299,10 +371,17 @@ int main()
         }
         else if (editChoice == 4)
         {
+          cout << "Enter new address: ";
+          string add;
+          cin >> add;
+          newUser->editAddress(add);
+        }
+        else if (editChoice == 5)
+        {
           cout << "Enter new zipcode: ";
-          string zipcode;
-          cin >> zipcode;
-          newUser->editZipcode(zipcode);
+          string zip;
+          cin >> zip;
+          newUser->editZipcode(zip);
         }
         else
         {
@@ -320,6 +399,8 @@ int main()
     }
     cout << "You have successfully logged out." << endl;
   }
+  delete newDoctor;
+  delete newUser;
 
   return 0;
 }
@@ -416,7 +497,8 @@ void userPrompt()
        << "1. Search for doctors" << endl
        << "2. Add to favorites" << endl
        << "3. View your ratings" << endl
-       << "4. Edit info" << endl
-       << "5. Log out" << endl
+       << "4. Add a rating" << endl
+       << "5. Edit info" << endl
+       << "6. Log out" << endl
        << "Enter a number to select." << endl;
 }

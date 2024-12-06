@@ -201,7 +201,7 @@ class doctordatabase {
     }
     void addNewDoctor(const Doctor &d);
     void searchZipcode(const string &zip);
-    void searchNPI(const string &nip);
+    Doctor* searchNPI(const string &nip);
     void searchName(const string &name); 
     void searchSpecialty(const string &spec); 
     bool usernameExists(const string &un);
