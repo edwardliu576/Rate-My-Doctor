@@ -17,7 +17,6 @@ class doctordatabase {
     doctordatabase(const string& filename="doctors.csv"){
         file= filename;
         ifstream file(filename);
-    //vector <Doctor> doctors;
     if(!file.is_open()) {
         throw runtime_error("Unable to open file");
     }
@@ -45,6 +44,7 @@ class doctordatabase {
         string theun="";
        
         getline(ss, cell, ',');
+        
         if(cell.empty()) {
             theun= " ";
         }
@@ -54,9 +54,10 @@ class doctordatabase {
         }
         else {
             theun=cell;
+
         }
 
-        //un
+        //pwd
         string thepwd="";
        
         getline(ss, cell, ',');
@@ -70,7 +71,6 @@ class doctordatabase {
         else {
             thepwd=cell;
         }
-        // 
         string cell2;
         string theName="";
         getline(ss, cell, ',');
