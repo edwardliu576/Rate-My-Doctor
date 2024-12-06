@@ -7,8 +7,9 @@ void Ratings::addRating(double rating)
 {
     if (rating < 0.0 || rating > 5.0)
     {
-        cout << "Invalid Rating, must enter a value from 0.0 to 5.0" << endl; 
+        cout << "Invalid Rating, must enter a value from 0.0 to 5.0" << endl;
     }
+    ratings.push_back(rating);
     totalReviews = totalReviews + 1; 
     sumOfRatings = sumOfRatings + rating;
 
@@ -42,8 +43,8 @@ void Ratings::displayReviews() const
     for (int i = 0; i < comments.size(); i++)
     {
         string review = comments[i];
-        cout << "Review #: " << i + 1 << endl; 
-
+        // cout << "Review #: " << i + 1 << endl; 
+        cout << "Review #" << i + 1 << ": " << comments[i] << std::endl;
     }
     
 }
