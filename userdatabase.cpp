@@ -1,7 +1,6 @@
 #include "userdatabase.h"
 #include "doctor.h"
 #include "account.h"
-//include print class
 
 
 void userDatabase::addNewUser(const User &u){
@@ -24,6 +23,7 @@ void userDatabase::addNewUser(const User &u){
     }
     return false;
  }
+
 User* userDatabase::userLogin(const string & un, const string & p){
 
     User *u= nullptr;

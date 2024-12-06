@@ -1,5 +1,4 @@
 #pragma once
-//still need to include account class
 #include "account.h"
 #include "ratings.h"
 #include "userRatings.h"
