@@ -29,7 +29,7 @@ int main()
   {
     cout << "Are you a healthcare provider or patient? (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
     cin >> input;
-    while (input)
+    while (true)
     {
       if (input == 'H' || input == 'h')
       {
@@ -48,6 +48,7 @@ int main()
       else
       {
         cout << "Please enter a valid input (enter \'H\' for healthcare provider or \'P\' for patient)" << endl;
+        cin >> input;
       }
     }
   }
@@ -90,7 +91,7 @@ int main()
             cout << "Password is incorrect. Failed to log-in.";
             return 0;
           }
-          selection == "patient";
+          selection = "patient";
         }
         else {
           cout << "There is no account that matches that username!" << endl;
@@ -139,7 +140,15 @@ int main()
       else if (numChoice == 2)
       {
         print.printDocLoginInformation(*newDoctor);
-        cout << "what would you like to edit? (Enter 1 for name, 2 for username, 3 for password, 4 for address, 5 for zipcode) " << endl;
+         cout << "what would you like to edit?" << endl
+             << "1. name" << endl
+             << "2. username" << endl
+             << "3. password" << endl
+             << "4. for address" << endl
+             << "5. zipcode" << endl
+             << "6. specialty" << endl
+             << "7. facility" << endl
+             << "Enter your choice 1-7." << endl;
         int editChoice;
         cin >> editChoice;
         if (editChoice == 1)
@@ -185,6 +194,20 @@ int main()
           string zipcode;
           cin >> zipcode;
           newDoctor->editZipcode(zipcode);
+        }
+        else if (editChoice == 6)
+        {
+          cout << "Enter new specialty: ";
+          string spec;
+          cin >> spec;
+          newDoctor->editSpecialty(spec);
+        }
+        else if (editChoice == 7)
+        {
+          cout << "Enter new facility: ";
+          string fac;
+          cin >> fac;
+          newDoctor->editHospital(fac);
         }
         else
         {
@@ -260,7 +283,13 @@ int main()
       }
       else if (numChoice == 3)
       {
-        // printReviews(user);
+        // print.printRatings(newUser.getRatings());
+        // cout << "Would you like to edit a rating? (enter \'Y\' for yes or \'N\' for no) << endl";
+        // char edit;
+        // cin >> edit;
+        // if(edit == 'Y' || edit == 'y') {
+
+        // }
       }
       else if (numChoice == 4)
       {
@@ -299,10 +328,17 @@ int main()
         }
         else if (editChoice == 4)
         {
+          cout << "Enter new address: ";
+          string add;
+          cin >> add;
+          newUser->editAddress(add);
+        }
+        else if (editChoice == 5)
+        {
           cout << "Enter new zipcode: ";
-          string zipcode;
-          cin >> zipcode;
-          newUser->editZipcode(zipcode);
+          string zip;
+          cin >> zip;
+          newUser->editZipcode(zip);
         }
         else
         {
